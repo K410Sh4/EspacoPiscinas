@@ -43,3 +43,13 @@ Duas fotografias de ambientação usadas sob a licença Unsplash; **não represe
 - Alexander Mass: https://unsplash.com/photos/a-curved-blue-swimming-pool-with-an-outdoor-bar-ORGeoT5pUTE
 
 O código deste site não inclui licença de reutilização. Verifique direitos de marca e conteúdo antes de redistribuir. O protocolo V3.3 fornecido orientou escolhas de UX/UI, mas testes manuais em navegadores reais devem ser realizados antes do lançamento.
+
+## Identidade visual recebida
+
+A revisão de identidade utiliza a arte publicitária fornecida como referência:
+- Azul-marinho aproximado `#06254e` e turquesa `#05f3db`.
+- O logotipo foi extraído da arte anexada e salvo em `assets/espaco-piscina-logo.png` (versão raster de baixa resolução). O arquivo original vetorial, se disponível, deverá substituí-lo para materiais grandes.
+- A foto de fachada em `assets/fachada-espaco-piscina.webp` é um recorte ilustrativo da arte fornecida; não é imagem atualizada e independente da loja.
+- O título principal agora segue o posicionamento do material: orientar o cliente antes de comprar produto inadequado para a água da piscina.
+
+Nenhuma identidade societária, autorização comercial ou disponibilidade de estoque é inferida a partir da imagem.
