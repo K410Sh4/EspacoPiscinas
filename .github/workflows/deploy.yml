@@ -86,6 +86,19 @@ jobs:
                   if tag == 'link' and attrs.get('rel') == 'stylesheet': self.styles.add(urlsplit(attrs.get('href')).path)
           checker = PageChecker()
           checker.feed(Path('index.html').read_text(encoding='utf-8'))
+          import re
+          from html import unescape
+          homepage = Path('index.html').read_text(encoding='utf-8')
+          schemas = [json.loads(unescape(value)) for value in re.findall(r'<script type="application/ld\\+json">\\s*(.*?)\\s*</script>', homepage, flags=re.S)]
+          assert len([item for item in schemas if item.get('@type') == 'Store']) == 1
+          assert len([item for item in schemas if item.get('@type') == 'WebSite']) == 1
+          store = next(item for item in schemas if item.get('@type') == 'Store')
+          site = next(item for item in schemas if item.get('@type') == 'WebSite')
+          assert store['url'] == site['url'] == 'https://k410sh4.github.io/EspacoPiscinas/'
+          assert store['logo'].startswith(store['url'])
+          assert site['publisher']['@id'] == store['@id']
+          assert site['name'] == 'Espaço Piscina'
+          print('Dados estruturados Store/WebSite válidos.')
           assert './app.js' in checker.scripts
           assert './styles.css' in checker.styles
           assert {'productGrid','cartDrawer','quickQuoteForm','cartItems','categoryFilter','searchInput','heroCarousel','heroPrev','heroNext','heroSlideStatus'} <= checker.ids
