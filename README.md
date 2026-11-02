@@ -75,3 +75,26 @@ No projeto HTML/CSS/JS, os arquivos relacionados são `index.html` (estrutura), 
 ## Digitação do título principal
 
 O trecho “em Alfenas?” aparece letra a letra uma vez no carregamento. A primeira parte do título fica fixa, e uma camada invisível reserva a largura final para impedir deslocamentos. O texto permanece disponível integralmente a leitores de tela. A animação não inicia quando a preferência do sistema é por movimento reduzido, e pode ser interrompida por essa preferência. O conteúdo completo é exibido normalmente com JavaScript desativado.
+
+## Central de Ajuda — marcas e situações
+
+Rota: `/suporte.html`. O botão chamativo com fotografia ilustrativa no início do site e o menu levam à página.
+
+As seis situações são: água verde, água turva, pH alto, pH baixo, manchas/coloração por possíveis metais e bordas sujas. Há opções para orçamento das marcas Montreal, Genco, HTH e Fluidra, com links ao fabricante e filtros de busca/marca. **Os 22 itens são referências de produto verificadas em catálogos oficiais, mas não indicam disponibilidade real na Espaço Piscina.** Não há preços inventados.
+
+Arquitetura:
+- `catalog.js`: fonte única de dados, problemas, produtos, marcas, links e cuidados; aproveitada pela loja e pelo suporte;
+- `suporte.html`, `support.css` e `support.js`: página e funcionalidades de suporte;
+- `app.js`: loja preservada, carregando agora a mesma fonte de produtos; `supportOnly` esconde itens de suporte do catálogo genérico, mas não os impede de aparecer na lista;
+- `localStorage` na chave `espaco-piscina-orcamento-v1` compartilha a lista entre as duas páginas;
+- GitHub Actions publica ambas as páginas e verifica os arquivos.
+
+**Segurança:** a aparência não diagnostica pH, metais ou algas de maneira inequívoca. As fotos são **simulações visuais**, feitas com filtros sobre a fotografia ilustrativa da piscina, e não fotografias de problemas reais nem evidência de tratamento. Sempre medir água, conferir volume, filtração, rótulo/FDS, segurança e compatibilidade; produtos de marcas diferentes são opções alternativas e não devem ser misturados. Sem dosagens automáticas nem recomendação de tratamento químico simultâneo.
+
+Referências oficiais consultadas:
+- Montreal: https://www.montrealpiscinas.com.br/tratamentos/ e https://www.montrealpiscinas.com.br/produtos/
+- GENCO: https://www.genco.com.br/linha-de-produtos/ e https://www.genco.com.br/genfloc/
+- HTH: https://hth.com.br/produtos e https://hth.com.br/como-tratar/agua-verde
+- Fluidra: https://fluidra.com.br/categorias_produtos/tratamento-quimico-para-piscinas/
+
+A página não coleta fotos nem faz análise automatizada; o botão de ajuda abre WhatsApp para o usuário enviar voluntariamente seu caso e a foto. Vendas continuam mediante confirmação direta com a loja.

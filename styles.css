@@ -355,3 +355,20 @@ svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-l
 @media(prefers-reduced-motion:reduce){
   .hero h1 .hero-typing-output.is-typing::after{animation:none}
 }
+
+/* Chamada para a Central de Ajuda junto ao hero. */
+.nav-desktop .nav-support-link{color:#05f3db}
+.nav-desktop .nav-support-link:hover{color:#affff7}
+.hero-help-banner{position:relative;display:flex;align-items:center;gap:14px;padding:11px 14px 11px 11px;margin-top:24px;max-width:490px;border-radius:16px;background:rgba(5,243,219,.12);border:1px solid rgba(5,243,219,.46);color:#fff;box-shadow:0 14px 30px rgba(0,10,33,.13);transition:background .2s,border-color .2s,transform .2s}
+.hero-help-banner:hover{background:rgba(5,243,219,.23);border-color:#05f3db;transform:translateY(-2px)}
+.hero-help-banner:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.hero-help-photo{display:grid;place-items:center;flex:0 0 61px;width:61px;height:61px;overflow:hidden;border-radius:12px;background:#117a7b}
+.hero-help-photo img{height:100%;width:100%;object-fit:cover;filter:hue-rotate(-73deg) saturate(1.75)}
+.hero-help-info{min-width:0;flex:1;display:grid;gap:6px}
+.hero-help-info strong{font-size:12px;line-height:1.4;color:#f6ffff}
+.hero-help-info small{font-size:10px;line-height:1.5;color:#9deee6}
+.hero-help-arrow{flex:none;display:grid;place-items:center;width:29px;height:29px;border-radius:50%;background:#05f3db;color:#06254e;font-size:17px;font-weight:800;animation:help-arrow-pulse 3.3s ease-in-out infinite}
+@keyframes help-arrow-pulse{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+.hero-help-banner+.hero-note{margin-top:24px}
+@media(max-width:650px){.hero-help-banner{margin-top:20px;padding:9px;gap:10px}.hero-help-photo{height:56px;width:56px;flex-basis:56px}.hero-help-info strong{font-size:11px}.hero-help-info small{font-size:10px}.hero-help-arrow{height:27px;width:27px}}
+@media(prefers-reduced-motion:reduce){.hero-help-arrow{animation:none}.hero-help-banner{transition:none}}

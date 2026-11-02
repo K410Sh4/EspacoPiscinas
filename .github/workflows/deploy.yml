@@ -25,12 +25,19 @@ jobs:
       - name: Obter repositório
         uses: actions/checkout@v4
       - name: Verificar JavaScript
-        run: node --check app.js
+        run: |
+          node --check catalog.js
+          node --check app.js
+          node --check support.js
       - name: Verificar arquivos e referências
         run: |
           test -s index.html
           test -s styles.css
           test -s app.js
+          test -s catalog.js
+          test -s suporte.html
+          test -s support.css
+          test -s support.js
           test -s assets/favicon.svg
           test -s assets/espaco-piscina-logo.svg
           test -s assets/fachada-espaco-piscina.webp
@@ -53,6 +60,12 @@ jobs:
           assert './app.js' in checker.scripts
           assert './styles.css' in checker.styles
           assert {'productGrid','cartDrawer','quickQuoteForm','cartItems','categoryFilter','searchInput','heroCarousel','heroPrev','heroNext','heroSlideStatus'} <= checker.ids
+          assert './catalog.js' in checker.scripts
+          support = PageChecker()
+          support.feed(Path('suporte.html').read_text(encoding='utf-8'))
+          assert './support.js' in support.scripts and './catalog.js' in support.scripts
+          assert './support.css' in support.styles
+          assert {'supportGrid','supportSearch','supportType','cartDrawer','cartItems','sendQuote'} <= support.ids
           print('Estrutura e recursos principais presentes.')
           PY
       - name: Configurar GitHub Pages
@@ -60,7 +73,7 @@ jobs:
       - name: Preparar pacote público
         run: |
           mkdir -p dist/assets
-          cp index.html styles.css app.js robots.txt .nojekyll dist/
+          cp index.html suporte.html styles.css support.css app.js support.js catalog.js robots.txt .nojekyll dist/
           cp assets/favicon.svg assets/espaco-piscina-logo.svg assets/fachada-espaco-piscina.webp dist/assets/
       - name: Enviar site estático
         uses: actions/upload-pages-artifact@v3
