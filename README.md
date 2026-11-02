@@ -98,3 +98,31 @@ Referências oficiais consultadas:
 - Fluidra: https://fluidra.com.br/categorias_produtos/tratamento-quimico-para-piscinas/
 
 A página não coleta fotos nem faz análise automatizada; o botão de ajuda abre WhatsApp para o usuário enviar voluntariamente seu caso e a foto. Vendas continuam mediante confirmação direta com a loja.
+
+## Área de avaliações — `/avaliacoes.html`
+
+A página de avaliações permite nota de 1 a 5 estrelas, nome obrigatório, cidade opcional e comentário opcional.
+
+- **Notas 1–3:** abre WhatsApp com mensagem marcada **feedback privado — não publicar**.
+- **Notas 4–5:** com autorização explícita, abre WhatsApp com mensagem para moderação e possível publicação; sem autorização, também permanece privada.
+- **Não há envio automático ao preencher**. O visitante precisa enviar a mensagem pelo WhatsApp, onde seu número ficará visível à loja.
+- **Não há banco de dados nem backend**: apenas um arquivo público de depoimentos autorizados e aprovados, `avaliacoes.json`, editado manualmente no GitHub. Não é uma nota média imparcial.
+- **Nenhuma avaliação fictícia** foi inserida no arquivo inicial (`[]`).
+
+Para moderar: confirme pelo WhatsApp a autorização de uso de nome, cidade, nota e comentário. Após revisar o relato, adicione um registro no arquivo `avaliacoes.json`:
+
+```json
+{
+  "approved": true,
+  "consent": true,
+  "rating": 5,
+  "name": "Nome autorizado",
+  "city": "Cidade opcional",
+  "comment": "Comentário autorizado",
+  "date": "2026-11-01"
+}
+```
+
+Isso é apenas um **exemplo de formato**, não uma avaliação real. Publicar um comentário real requer consentimento de quem o fez. Excluir o registro no GitHub não garante remoção das versões anteriores do histórico público do repositório; evite armazenar dados privados ou sensíveis. Atenda pedidos de correção ou retirada.
+
+Os depoimentos públicos são explicitamente **selecionados** (apenas 4–5 estrelas autorizadas). O site avisa que notas 1–3 permanecem privadas e não representa essa seleção como a média de todas as opiniões recebidas.

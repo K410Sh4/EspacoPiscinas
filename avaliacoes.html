@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#06254e">
+  <meta name="description" content="Avalie o atendimento da Espaço Piscina em Alfenas, MG. Compartilhe uma experiência ou envie seu feedback de forma privada para a loja.">
+  <meta property="og:title" content="Avaliações e feedback | Espaço Piscina Alfenas">
+  <meta property="og:description" content="Conte como foi seu atendimento. Depoimentos positivos podem ser publicados com sua autorização após moderação; demais feedbacks são privados.">
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./reviews.css">
+  <script defer src="./reviews.js"></script>
+  <title>Avaliações e feedback | Espaço Piscina Alfenas</title>
+</head>
+<body class="reviews-page">
+  <svg xmlns="http://www.w3.org/2000/svg" class="svg-library" aria-hidden="true" focusable="false">
+    <symbol id="i-wave" viewBox="0 0 24 24"><path d="M2 14c3.3 0 3.3-4 6.7-4s3.3 4 6.6 4 3.4-4 6.7-4M2 20c3.3 0 3.3-4 6.7-4s3.3 4 6.6 4 3.4-4 6.7-4" /></symbol>
+    <symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 2s-7 8-7 13a7 7 0 0 0 14 0c0-5-7-13-7-13Z"/><path d="M9 16a3 3 0 0 0 3 3"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="4"/><path d="M5 9h14M9 15h6m-3-6v12"/></symbol>
+    <symbol id="i-pump" viewBox="0 0 24 24"><rect x="3" y="9" width="14" height="10" rx="2"/><path d="M17 12h4v5h-4M7 9V5h7v4M6 19v2m8-2v2M7 14h6"/></symbol>
+    <symbol id="i-light" viewBox="0 0 24 24"><path d="M9 18h6m-5 3h4M8.6 14.9a7 7 0 1 1 6.8 0c-1.1.7-1.4 1.5-1.4 3.1h-4c0-1.6-.3-2.4-1.4-3.1Z"/></symbol>
+    <symbol id="i-pool" viewBox="0 0 24 24"><path d="M3 17c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 3 2M3 21c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 3 2M8 14V4h7v10M8 9h7"/></symbol>
+    <symbol id="i-spa" viewBox="0 0 24 24"><path d="M4 12h16v3a6 6 0 0 1-6 6h-4a6 6 0 0 1-6-6v-3ZM7 12V8m5 4V6m5 6V8M3 12h18"/></symbol>
+    <symbol id="i-tool" viewBox="0 0 24 24"><path d="M15 5a6 6 0 0 0-7 7L3 17a2.8 2.8 0 0 0 4 4l5-5a6 6 0 0 0 7-7l-4 4-4-4 4-4Z"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M4 8h16l-1 13H5L4 8ZM9 9V6a3 3 0 0 1 6 0v3"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-7-7 7 7-7 7"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5 19 19M19 5 5 19"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3h4l1 5-2.5 2.2a15 15 0 0 0 5.3 5.3L16 13l5 1v4a3 3 0 0 1-3 3C10 21 3 14 3 6a3 3 0 0 1 3-3Z"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="m12 2 2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4L12 2Z"/></symbol>
+  </svg>
+
+<a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+<div class="topbar"><div class="container topbar-inner"><span><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg> Sua loja de piscinas em Alfenas, MG</span><a href="tel:+5535988124020">Dúvidas? (35) 98812-4020</a></div></div>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="./index.html#inicio" aria-label="Espaço Piscina, voltar ao início"><img class="brand-official-logo" src="./assets/espaco-piscina-logo.svg" alt="Espaço Piscina" width="202" height="84"></a>
+    <nav class="nav-desktop" aria-label="Navegação principal">
+      <a href="./index.html#inicio">Início</a><a href="./index.html#catalogo">Produtos</a><a href="./suporte.html">Ajuda com a piscina</a><a href="./avaliacoes.html" aria-current="page">Avaliações</a><a href="./index.html#contato">Contato</a>
+    </nav>
+    <div class="header-actions"><a class="review-header-action" href="#avaliar">Avaliar atendimento <span aria-hidden="true">↗</span></a><button type="button" class="menu-trigger" id="menuToggle" aria-label="Abrir menu" aria-controls="mobileNav" aria-expanded="false"><svg class="icon" aria-hidden="true"><use href="#i-menu"></use></svg></button></div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menu para dispositivos móveis" hidden>
+    <a href="./index.html#inicio">Início</a><a href="./index.html#catalogo">Produtos</a><a href="./suporte.html">Ajuda com a piscina</a><a href="./avaliacoes.html" aria-current="page">Avaliações</a><a href="./index.html#contato">Contato</a>
+  </nav>
+</header>
+<main id="conteudo">
+  <section class="review-hero" aria-labelledby="reviewTitle">
+    <div class="container review-hero-grid">
+      <div class="review-hero-copy">
+        <a class="review-back" href="./index.html#inicio">← Voltar para a loja</a>
+        <p class="eyebrow"><span class="eyebrow-dot"></span> SUA OPINIÃO IMPORTA</p>
+        <h1 id="reviewTitle">Como foi sua experiência <span>com a Espaço Piscina?</span></h1>
+        <p>Conte como foi o atendimento. Os elogios autorizados podem virar depoimentos públicos; as críticas são encaminhadas para a loja em particular.</p>
+        <div class="review-hero-feature"><span class="review-sparkle" aria-hidden="true">★</span><div><strong>Avaliação simples, atendimento humano.</strong><span>Leva apenas alguns instantes. Sem cadastro ou telefone obrigatório no formulário.</span></div></div>
+        <div class="review-transparency">
+          <strong>Transparência sobre a publicação</strong>
+          <p>Somente avaliações de <b>4 ou 5 estrelas</b>, com autorização e aprovação da loja, podem aparecer no site. Avaliações de <b>1 a 3 estrelas</b> são recebidas exclusivamente pelo WhatsApp e não são publicadas aqui. Os depoimentos exibidos, portanto, não representam todas as avaliações recebidas.</p>
+        </div>
+      </div>
+      <div class="review-form-card" id="avaliar">
+        <div class="review-form-header"><span class="review-form-icon" aria-hidden="true">★</span><div><p class="eyebrow">AVALIE SEU ATENDIMENTO</p><h2>Queremos ouvir você.</h2><p>Sua opinião ajuda a melhorar nossa loja.</p></div></div>
+        <form id="reviewForm" novalidate>
+          <fieldset class="rating-fieldset">
+            <legend>Como você avalia sua experiência? <span aria-hidden="true">*</span></legend>
+            <div class="rating-options" id="ratingOptions">
+              <label class="rating-choice"><input type="radio" name="rating" value="1" required><span class="rating-star" aria-hidden="true">★</span><span class="sr-only">1 estrela</span></label>
+              <label class="rating-choice"><input type="radio" name="rating" value="2"><span class="rating-star" aria-hidden="true">★</span><span class="sr-only">2 estrelas</span></label>
+              <label class="rating-choice"><input type="radio" name="rating" value="3"><span class="rating-star" aria-hidden="true">★</span><span class="sr-only">3 estrelas</span></label>
+              <label class="rating-choice"><input type="radio" name="rating" value="4"><span class="rating-star" aria-hidden="true">★</span><span class="sr-only">4 estrelas</span></label>
+              <label class="rating-choice"><input type="radio" name="rating" value="5"><span class="rating-star" aria-hidden="true">★</span><span class="sr-only">5 estrelas</span></label>
+            </div>
+            <p class="rating-feedback" id="ratingFeedback" aria-live="polite">Selecione de 1 a 5 estrelas.</p>
+          </fieldset>
+          <div class="review-fields">
+            <label for="reviewName">Seu nome <span aria-hidden="true">*</span></label>
+            <input id="reviewName" name="name" type="text" maxlength="80" autocomplete="name" placeholder="Como podemos chamar você?" required>
+            <label for="reviewCity">Sua cidade <small>(opcional)</small></label>
+            <input id="reviewCity" name="city" type="text" maxlength="80" autocomplete="address-level2" placeholder="Ex.: Alfenas, MG">
+            <label for="reviewComment">Conte sobre sua experiência <small>(opcional)</small></label>
+            <textarea id="reviewComment" name="comment" rows="4" maxlength="1200" placeholder="O que deu certo? O que podemos melhorar?"></textarea>
+          </div>
+          <div class="review-consent" id="reviewConsentBox" hidden>
+            <label for="reviewConsent"><input id="reviewConsent" type="checkbox" name="consent"><span>Autorizo que meu nome, cidade (se informada), nota e comentário sejam publicados no site após análise da loja.</span></label>
+            <p>Sem autorização, seu elogio será enviado apenas como mensagem privada.</p>
+          </div>
+          <div class="review-route" id="reviewRoute" aria-live="polite">
+            <span aria-hidden="true">↗</span><div><strong>Escolha sua nota</strong><p>Mostraremos aqui para onde vai sua avaliação antes de abrir o WhatsApp.</p></div>
+          </div>
+          <p class="review-error" id="reviewError" role="alert" hidden></p>
+          <button class="btn btn-primary btn-full review-send" type="submit" id="reviewSubmit">Continuar para o WhatsApp <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button>
+          <p class="review-privacy">Nada é enviado automaticamente ao preencher este formulário. Você revisa e envia a mensagem pelo WhatsApp; nesse momento, seu número de WhatsApp ficará visível à loja. Para publicação, é necessária aprovação manual.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section class="section review-public-section" id="depoimentos" aria-labelledby="publicTitle">
+    <div class="container">
+      <div class="section-heading"><div><p class="eyebrow">EXPERIÊNCIAS COMPARTILHADAS</p><h2 id="publicTitle">Depoimentos <em>publicados.</em></h2></div><p>Aqui aparecem somente avaliações positivas de 4 ou 5 estrelas autorizadas e aprovadas. Outros feedbacks são recebidos em privado.</p></div>
+      <div id="reviewList" class="public-review-grid" aria-live="polite" aria-busy="true"><p class="public-review-loading">Consultando depoimentos publicados...</p></div>
+      <p class="review-public-note">Esta seleção não é uma nota média do atendimento. Para enviar sua experiência, positiva ou negativa, use o formulário acima.</p>
+    </div>
+  </section>
+  <section class="review-bottom-cta"><div class="container review-bottom-inner"><div><span class="eyebrow">PREFERE CONVERSAR?</span><h2>Estamos aqui para ouvir.</h2><p>Se precisar resolver uma situação diretamente, fale com a loja pelo WhatsApp.</p></div><a class="btn btn-primary" href="https://wa.me/5535988124020?text=Ol%C3%A1%21%20Gostaria%20de%20conversar%20sobre%20um%20atendimento." target="_blank" rel="noopener noreferrer">Falar com a loja <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a></div></section>
+</main>
+<footer class="site-footer"><div class="container footer-top">
+  <div><a class="brand brand-footer" href="./index.html#inicio"><img class="brand-official-logo" src="./assets/espaco-piscina-logo.svg" alt="Espaço Piscina" width="202" height="84"></a><p>Mais cuidado, mais lazer, mais momentos para aproveitar.</p></div>
+  <div><strong>Explore</strong><a href="./index.html#inicio">Página inicial</a><a href="./index.html#catalogo">Produtos</a><a href="./suporte.html">Central de ajuda</a><a href="./avaliacoes.html">Avaliações</a></div>
+  <div><strong>Atendimento</strong><a href="tel:+5535988124020">(35) 98812-4020</a><a href="./index.html#contato">Endereço em Alfenas</a><a href="https://wa.me/5535988124020" target="_blank" rel="noopener noreferrer">WhatsApp</a></div>
+</div><div class="container footer-bottom"><small>© <span id="reviewYear">2026</span> Espaço Piscina. Mensagens enviadas voluntariamente pelo WhatsApp.</small><small>Depoimentos moderados e exibidos com autorização. Avaliações de 1 a 3 estrelas não são publicadas neste site.</small></div></footer>
+</body>
+</html>

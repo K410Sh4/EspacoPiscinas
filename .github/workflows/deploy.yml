@@ -29,6 +29,7 @@ jobs:
           node --check catalog.js
           node --check app.js
           node --check support.js
+          node --check reviews.js
       - name: Verificar arquivos e referências
         run: |
           test -s index.html
@@ -38,6 +39,10 @@ jobs:
           test -s suporte.html
           test -s support.css
           test -s support.js
+          test -s avaliacoes.html
+          test -s reviews.css
+          test -s reviews.js
+          test -s avaliacoes.json
           test -s assets/favicon.svg
           test -s assets/espaco-piscina-logo.svg
           test -s assets/fachada-espaco-piscina.webp
@@ -66,6 +71,16 @@ jobs:
           assert './support.js' in support.scripts and './catalog.js' in support.scripts
           assert './support.css' in support.styles
           assert {'supportGrid','supportSearch','supportType','cartDrawer','cartItems','sendQuote'} <= support.ids
+          reviews = PageChecker()
+          reviews.feed(Path('avaliacoes.html').read_text(encoding='utf-8'))
+          assert './reviews.js' in reviews.scripts
+          assert './reviews.css' in reviews.styles
+          assert {'reviewForm','reviewList','ratingOptions','reviewName','reviewCity','reviewComment','reviewSubmit'} <= reviews.ids
+          import json
+          approved = json.loads(Path('avaliacoes.json').read_text(encoding='utf-8'))
+          assert isinstance(approved,list)
+          assert all(isinstance(item,dict) and item.get('approved') is True and item.get('consent') is True and item.get('rating') in (4,5) for item in approved)
+          print('Área de avaliações e base moderada válidas.')
           print('Estrutura e recursos principais presentes.')
           PY
       - name: Configurar GitHub Pages
@@ -73,7 +88,7 @@ jobs:
       - name: Preparar pacote público
         run: |
           mkdir -p dist/assets
-          cp index.html suporte.html styles.css support.css app.js support.js catalog.js robots.txt .nojekyll dist/
+          cp index.html suporte.html avaliacoes.html styles.css support.css reviews.css app.js support.js reviews.js catalog.js avaliacoes.json robots.txt .nojekyll dist/
           cp assets/favicon.svg assets/espaco-piscina-logo.svg assets/fachada-espaco-piscina.webp dist/assets/
       - name: Enviar site estático
         uses: actions/upload-pages-artifact@v3
