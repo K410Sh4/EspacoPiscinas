@@ -281,8 +281,8 @@ svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-l
 .hero-float strong{color:var(--navy)}
 .hero-float div span{color:#0c5761!important}
 .brand-footer{background:var(--aqua);padding:6px 14px;border-radius:17px;width:max-content}
-.about-storefront{max-width:340px;margin:28px 0 0}
-.about-storefront img{display:block;width:100%;height:auto;aspect-ratio:260/114;object-fit:cover;border-radius:17px;box-shadow:0 12px 35px rgba(6,37,78,.14)}
+.about-storefront{width:100%;max-width:520px;margin:28px 0 0}
+.about-storefront img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;border-radius:17px;box-shadow:0 12px 35px rgba(6,37,78,.14)}
 .about-storefront figcaption{color:#81939c;font-size:10px;line-height:1.7;margin-top:9px}
 .mobile-nav{background:var(--aqua)}
 .mobile-nav a{color:var(--navy);border-bottom-color:#0a93872e}

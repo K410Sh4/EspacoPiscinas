@@ -45,7 +45,14 @@ jobs:
           test -s avaliacoes.json
           test -s assets/favicon.svg
           test -s assets/espaco-piscina-logo.svg
-          test -s assets/fachada-espaco-piscina.webp
+          test -s assets/fachada-espaco-piscina-3072.png
+          python3 - <<'PYIMG'
+          import struct
+          from pathlib import Path
+          data = Path("assets/fachada-espaco-piscina-3072.png").read_bytes()
+          assert data[:8] == b"\x89PNG\r\n\x1a\n"
+          assert struct.unpack(">II", data[16:24]) == (3072, 3072)
+          PYIMG
           test -s assets/problemas/agua-verde.webp
           test -s assets/problemas/agua-turva.webp
           test -s assets/problemas/ph-alto.webp
@@ -103,7 +110,7 @@ jobs:
         run: |
           mkdir -p dist/assets
           cp index.html suporte.html avaliacoes.html styles.css support.css reviews.css app.js support.js reviews.js catalog.js avaliacoes.json robots.txt .nojekyll dist/
-          cp assets/favicon.svg assets/espaco-piscina-logo.svg assets/fachada-espaco-piscina.webp dist/assets/
+          cp assets/favicon.svg assets/espaco-piscina-logo.svg assets/fachada-espaco-piscina-3072.png dist/assets/
           cp -R assets/problemas dist/assets/
           cp -R assets/marcas dist/assets/
       - name: Enviar site estático
