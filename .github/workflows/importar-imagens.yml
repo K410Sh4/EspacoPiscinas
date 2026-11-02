@@ -1,0 +1,49 @@
+name: Importar imagens ilustrativas
+on:
+  push:
+    branches: [main]
+    paths: [".github/workflows/importar-imagens.yml"]
+permissions:
+  contents: write
+jobs:
+  importar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Preparar conversor
+        run: python -m pip install --quiet Pillow
+      - name: Obter imagens e otimizar
+        env:
+          SOURCES_JSON: '[["agua-verde.webp","https://at.adobe.com/EuNQrEgK4eLFn2JM"],["agua-turva.webp","https://at.adobe.com/PSc25HDFZ6f7NaSu"],["ph-alto.webp","https://at.adobe.com/zLT8OxCxPbyA57LL"],["ph-baixo.webp","https://at.adobe.com/mymBps3eF7ZSgdb2"],["manchas-ferrugem.webp","https://at.adobe.com/OYkgjAM454DMXssR"],["bordas-sujas.webp","https://at.adobe.com/KybOzULPlDWLYhhj"]]'
+        run: |
+          python - <<'PY'
+          import io, json, os, pathlib, urllib.request
+          from PIL import Image
+          target = pathlib.Path("assets/problemas")
+          target.mkdir(parents=True, exist_ok=True)
+          sources = json.loads(os.environ["SOURCES_JSON"])
+          for filename, url in sources:
+              request = urllib.request.Request(url, headers={"User-Agent":"Mozilla/5.0"})
+              with urllib.request.urlopen(request, timeout=45) as response:
+                  raw = response.read(12 * 1024 * 1024 + 1)
+              if len(raw) > 12 * 1024 * 1024:
+                  raise ValueError(f"Arquivo grande demais: {filename}")
+              img = Image.open(io.BytesIO(raw))
+              img.verify()
+              img = Image.open(io.BytesIO(raw)).convert("RGB")
+              img.thumbnail((1200, 675), Image.Resampling.LANCZOS)
+              img.save(target / filename, "WEBP", quality=75, method=6)
+              assert (target / filename).stat().st_size > 4096
+              print(filename, (target / filename).stat().st_size)
+          assert len(list(target.glob("*.webp"))) == len(sources)
+          PY
+      - name: Persistir imagens no repositório
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/problemas/
+          git diff --cached --check
+          git commit -m "assets: adicionar seis fotos ilustrativas otimizadas"
+          git push
