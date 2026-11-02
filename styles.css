@@ -363,7 +363,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-l
 .hero-help-banner:hover{background:rgba(5,243,219,.23);border-color:#05f3db;transform:translateY(-2px)}
 .hero-help-banner:focus-visible{outline:3px solid #fff;outline-offset:4px}
 .hero-help-photo{display:grid;place-items:center;flex:0 0 61px;width:61px;height:61px;overflow:hidden;border-radius:12px;background:#117a7b}
-.hero-help-photo img{height:100%;width:100%;object-fit:cover;filter:hue-rotate(-73deg) saturate(1.75)}
+.hero-help-photo img{height:100%;width:100%;object-fit:cover;object-position:52% 57%;filter:none;display:block}
 .hero-help-info{min-width:0;flex:1;display:grid;gap:6px}
 .hero-help-info strong{font-size:12px;line-height:1.4;color:#f6ffff}
 .hero-help-info small{font-size:10px;line-height:1.5;color:#9deee6}

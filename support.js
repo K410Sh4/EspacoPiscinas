@@ -47,15 +47,39 @@ function announce(message) {
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => { toast.hidden = true; }, 3000);
 }
+/* Identidades visuais por fabricante; fotos locais somente de produtos verificados. */
+function brandArtwork(product) {
+  if (product.id === "genco-algicida-choque") {
+    return '<img class="support-product-photo" src="./assets/marcas/genco-algicida-choque.webp" loading="lazy" decoding="async" width="110" height="110" alt="Embalagem GENCO Algicida de Choque">';
+  }
+  if (product.brand === "Genco") {
+    return '<img class="support-brand-logo" src="./assets/marcas/genco-logo.webp" loading="lazy" decoding="async" width="110" height="80" alt="">';
+  }
+  if (product.brand === "Fluidra") {
+    return '<img class="support-brand-logo" src="./assets/marcas/fluidra-logo.webp" loading="lazy" decoding="async" width="110" height="80" alt="">';
+  }
+  if (product.brand === "HTH") {
+    return '<span class="support-brand-lettermark support-brand-lettermark--hth" aria-hidden="true">HTH</span>';
+  }
+  if (product.brand === "Montreal") {
+    return '<span class="support-brand-lettermark support-brand-lettermark--montreal" aria-hidden="true">montreal<span class="support-brand-droplet"></span></span>';
+  }
+  return icon("i-droplet");
+}
 function optionTemplate(product) {
   const count = amount(product.id);
-  return '<div class="support-option">' +
+  const brandKey = ({HTH:"hth",Genco:"genco",Montreal:"montreal",Fluidra:"fluidra"})[product.brand] || "generic";
+  return '<div class="support-option support-option--' + brandKey + '">' +
+    '<div class="support-option-main">' +
+    '<div class="support-option-media" aria-label="Identidade visual ' + safe(product.brand) + '">' + brandArtwork(product) + '</div>' +
+    '<div class="support-option-content">' +
     '<div class="support-option-top"><span class="support-option-brand">' + safe(product.brand) + '</span><span class="product-category">Sob consulta</span></div>' +
     '<h4>' + safe(product.name) + '</h4>' +
     '<p>' + safe(product.description) + '</p>' +
     '<div class="support-option-actions"><a href="' + safe(product.url) + '" target="_blank" rel="noopener noreferrer" aria-label="Informações oficiais do fabricante para ' + safe(product.name) + '">Ficha do fabricante ↗</a>' +
     '<button type="button" class="support-add" data-add="' + safe(product.id) + '" aria-label="Adicionar ' + safe(product.name) + ' à lista">' +
-    icon(count ? "i-check" : "i-plus") + (count ? "Adicionar mais" : "Adicionar à lista") + '</button></div></div>';
+    icon(count ? "i-check" : "i-plus") + (count ? "Adicionar mais" : "Adicionar à lista") + '</button></div>' +
+    '</div></div></div>';
 }
 function caseTemplate(problem, items) {
   return '<article class="support-case" id="problema-' + safe(problem.id) + '">' +

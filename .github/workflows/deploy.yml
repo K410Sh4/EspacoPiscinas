@@ -52,6 +52,9 @@ jobs:
           test -s assets/problemas/ph-baixo.webp
           test -s assets/problemas/manchas-ferrugem.webp
           test -s assets/problemas/bordas-sujas.webp
+          test -s assets/marcas/genco-logo.webp
+          test -s assets/marcas/genco-algicida-choque.webp
+          test -s assets/marcas/fluidra-logo.webp
           python3 - <<'PY'
           from html.parser import HTMLParser
           from pathlib import Path
@@ -97,6 +100,7 @@ jobs:
           cp index.html suporte.html avaliacoes.html styles.css support.css reviews.css app.js support.js reviews.js catalog.js avaliacoes.json robots.txt .nojekyll dist/
           cp assets/favicon.svg assets/espaco-piscina-logo.svg assets/fachada-espaco-piscina.webp dist/assets/
           cp -R assets/problemas dist/assets/
+          cp -R assets/marcas dist/assets/
       - name: Enviar site estático
         uses: actions/upload-pages-artifact@v3
         with:

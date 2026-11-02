@@ -55,17 +55,43 @@
 .support-case-hint{border-left:3px solid #09cbbd;background:#e9faf7;border-radius:0 8px 8px 0;padding:11px 14px;color:#264e5e;font-size:11px;line-height:1.7;margin:6px 0 14px}
 .support-case-hint strong{color:#0a5666}
 .support-case-products-title{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:#688794;margin:13px 0}
-.support-option-list{display:flex;flex-direction:column;gap:9px;margin-top:auto}
-.support-option{border:1px solid #e0ebec;border-radius:13px;padding:13px 14px;background:#fbfefe}
-.support-option-top{display:flex;align-items:start;justify-content:space-between;gap:12px}
-.support-option-brand{display:inline-flex;padding:5px 9px;border-radius:6px;background:#e0f7f2;color:#007f79;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.03em}
-.support-option h4{font-size:12px;color:#15384d;line-height:1.5;margin:8px 0 5px}
-.support-option p{font-size:10px;color:#617983;line-height:1.7;margin:0}
-.support-option-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px}
-.support-option-actions a{color:#0a7082;text-decoration:underline;text-underline-offset:3px;font-size:10px;font-weight:750}
-.support-add{background:#05f3db;color:#06254e;border:0;border-radius:9px;min-height:38px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 12px;font-size:10px;font-weight:800;transition:background .18s,transform .18s}
-.support-add:hover{background:#87fff3;transform:translateY(-1px)}
+.support-option-list{display:flex;flex-direction:column;gap:12px;margin-top:auto}
+.support-option{--brand-accent:#007f79;--brand-ink:#11445a;--brand-surface:#f1faf9;--brand-edge:#cae6e3;position:relative;overflow:hidden;border:1px solid var(--brand-edge);border-radius:16px;padding:15px;background:linear-gradient(115deg,var(--brand-surface),#fff 58%);box-shadow:0 4px 15px rgba(4,45,65,.035);transition:transform .18s,box-shadow .18s}
+.support-option::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--brand-accent)}
+.support-option--hth{--brand-accent:#d32636;--brand-ink:#0c2b62;--brand-surface:#f3f6fc;--brand-edge:#dbe3f2}
+.support-option--genco{--brand-accent:#c9272a;--brand-ink:#9b2527;--brand-surface:#fff8ee;--brand-edge:#f0e1cf}
+.support-option--montreal{--brand-accent:#087fab;--brand-ink:#0a577d;--brand-surface:#f0faff;--brand-edge:#ceeaf6}
+.support-option--fluidra{--brand-accent:#009bc6;--brand-ink:#06356e;--brand-surface:#eef9fb;--brand-edge:#cae9f2}
+.support-option-main{display:grid;grid-template-columns:93px minmax(0,1fr);align-items:start;gap:15px}
+.support-option-media{height:109px;min-width:0;display:grid;place-items:center;overflow:hidden;border:1px solid var(--brand-edge);border-radius:12px;background:#fff;color:var(--brand-ink)}
+.support-option--hth .support-option-media{background:linear-gradient(140deg,#fff,#f6f8fe)}
+.support-option--montreal .support-option-media{background:linear-gradient(145deg,#dff4ff,#fff)}
+.support-option--fluidra .support-option-media{background:linear-gradient(145deg,#06356e,#006a9c);border-color:#0f6189}
+.support-option-media img{display:block;max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain;padding:10px}
+.support-option-media .support-product-photo{padding:3px 5px}
+.support-option--fluidra .support-brand-logo{padding:13px}
+.support-brand-lettermark{display:flex;align-items:center;justify-content:center;position:relative;font-weight:900}
+.support-brand-lettermark--hth{font-family:Arial,Helvetica,sans-serif;font-size:29px;letter-spacing:-.08em;color:#102c66}
+.support-brand-lettermark--hth::before,.support-brand-lettermark--hth::after{content:"";position:absolute;left:14%;right:14%;height:4px;border-radius:30px;background:#d32636}
+.support-brand-lettermark--hth::before{top:-14px}
+.support-brand-lettermark--hth::after{bottom:-14px}
+.support-brand-lettermark--montreal{font-family:Arial,Helvetica,sans-serif;font-size:14px;letter-spacing:-.055em;color:#086b98}
+.support-brand-droplet{position:absolute;width:11px;height:13px;top:-19px;left:50%;background:#5bc4e9;border-radius:70% 0 70% 70%;transform:rotate(-45deg)}
+.support-option-content{min-width:0}
+.support-option-top{display:flex;align-items:center;justify-content:space-between;gap:7px;flex-wrap:wrap}
+.support-option-brand{display:inline-flex;align-items:center;min-height:24px;padding:4px 9px;border-radius:6px;background:var(--brand-surface);border:1px solid var(--brand-edge);color:var(--brand-ink);font-size:10px;font-weight:850;letter-spacing:.02em}
+.support-option .product-category{font-size:9px;color:#677f89;letter-spacing:.04em}
+.support-option h4{font-size:13px;line-height:1.48;color:#15384d;margin:9px 0 5px;overflow-wrap:break-word}
+.support-option p{font-size:11px;color:#617983;line-height:1.65;margin:0}
+.support-option-actions{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-top:13px;flex-wrap:wrap}
+.support-option-actions a{color:var(--brand-ink);text-decoration:underline;text-underline-offset:3px;font-size:11px;font-weight:750}
+.support-option-actions a:hover{color:var(--brand-accent)}
+.support-add{background:var(--brand-ink);color:#fff;border:0;border-radius:9px;min-height:38px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 12px;font-size:10px;font-weight:800;transition:filter .18s,transform .18s}
+.support-add:hover{filter:brightness(1.11);transform:translateY(-1px)}
 .support-add svg{width:15px;height:15px}
+.support-option :is(a,button):focus-visible{outline:3px solid var(--brand-accent);outline-offset:3px}
+@media(hover:hover){.support-option:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(4,45,65,.09)}}
+@media(max-width:480px){.support-option{padding:12px}.support-option-main{grid-template-columns:74px minmax(0,1fr);gap:11px}.support-option-media{height:93px}.support-option--fluidra .support-brand-logo{padding:8px}.support-option h4{font-size:12px}.support-option p{font-size:10px}.support-brand-lettermark--hth{font-size:24px}.support-brand-lettermark--montreal{font-size:12px}.support-option-actions{align-items:flex-start}}
 .support-case-warning{font-size:10px;color:#777b89;line-height:1.75;margin:16px 0 0}
 .support-empty{text-align:center;padding:55px 20px;border:1px dashed #beded9;border-radius:22px}
 .support-empty h3{font-size:19px}
@@ -94,3 +120,5 @@
 
 /* Fotografias ilustrativas únicas: enquadramento consistente nos cards. */
 .support-case-visual img{object-position:center center}
+
+@media(prefers-reduced-motion:reduce){.support-option,.support-add{transition:none}.support-option:hover,.support-add:hover{transform:none}}
