@@ -55,9 +55,14 @@ jobs:
           test -s assets/marcas/genco-logo.webp
           test -s assets/marcas/genco-algicida-choque.webp
           test -s assets/marcas/fluidra-logo.webp
+          test -s assets/marcas/montreal-oficial.svg
+          test -s assets/marcas/genco-oficial.svg
+          test -s assets/marcas/fluidra-oficial.svg
+          test -s assets/marcas/hth-oficial.svg
           python3 - <<'PY'
           from html.parser import HTMLParser
           from pathlib import Path
+          from urllib.parse import urlsplit
           class PageChecker(HTMLParser):
               def __init__(self):
                   super().__init__()
@@ -67,8 +72,8 @@ jobs:
               def handle_starttag(self, tag, attrs):
                   attrs = dict(attrs)
                   if 'id' in attrs: self.ids.add(attrs['id'])
-                  if tag == 'script' and 'src' in attrs: self.scripts.add(attrs['src'])
-                  if tag == 'link' and attrs.get('rel') == 'stylesheet': self.styles.add(attrs.get('href'))
+                  if tag == 'script' and 'src' in attrs: self.scripts.add(urlsplit(attrs['src']).path)
+                  if tag == 'link' and attrs.get('rel') == 'stylesheet': self.styles.add(urlsplit(attrs.get('href')).path)
           checker = PageChecker()
           checker.feed(Path('index.html').read_text(encoding='utf-8'))
           assert './app.js' in checker.scripts
