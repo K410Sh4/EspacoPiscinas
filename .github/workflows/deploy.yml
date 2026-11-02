@@ -33,6 +33,8 @@ jobs:
       - name: Verificar arquivos e referências
         run: |
           test -s index.html
+          test -s googlede998025cd2cc5e8.html
+          grep -Fxq 'google-site-verification: googlede998025cd2cc5e8.html' googlede998025cd2cc5e8.html
           test -s styles.css
           test -s app.js
           test -s catalog.js
@@ -109,7 +111,7 @@ jobs:
       - name: Preparar pacote público
         run: |
           mkdir -p dist/assets
-          cp index.html suporte.html avaliacoes.html styles.css support.css reviews.css app.js support.js reviews.js catalog.js avaliacoes.json robots.txt .nojekyll dist/
+          cp index.html suporte.html avaliacoes.html styles.css support.css reviews.css app.js support.js reviews.js catalog.js avaliacoes.json robots.txt .nojekyll googlede998025cd2cc5e8.html dist/
           cp assets/favicon.svg assets/espaco-piscina-logo.svg assets/fachada-espaco-piscina-3072.png dist/assets/
           cp -R assets/problemas dist/assets/
           cp -R assets/marcas dist/assets/
