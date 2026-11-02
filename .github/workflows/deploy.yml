@@ -46,6 +46,12 @@ jobs:
           test -s assets/favicon.svg
           test -s assets/espaco-piscina-logo.svg
           test -s assets/fachada-espaco-piscina.webp
+          test -s assets/problemas/agua-verde.webp
+          test -s assets/problemas/agua-turva.webp
+          test -s assets/problemas/ph-alto.webp
+          test -s assets/problemas/ph-baixo.webp
+          test -s assets/problemas/manchas-ferrugem.webp
+          test -s assets/problemas/bordas-sujas.webp
           python3 - <<'PY'
           from html.parser import HTMLParser
           from pathlib import Path
@@ -90,6 +96,7 @@ jobs:
           mkdir -p dist/assets
           cp index.html suporte.html avaliacoes.html styles.css support.css reviews.css app.js support.js reviews.js catalog.js avaliacoes.json robots.txt .nojekyll dist/
           cp assets/favicon.svg assets/espaco-piscina-logo.svg assets/fachada-espaco-piscina.webp dist/assets/
+          cp -R assets/problemas dist/assets/
       - name: Enviar site estático
         uses: actions/upload-pages-artifact@v3
         with:

@@ -62,7 +62,7 @@ function caseTemplate(problem, items) {
     '<div class="support-case-visual visual-' + safe(problem.imageType) + '">' +
     '<img loading="lazy" decoding="async" width="730" height="410" src="' + safe(problem.photo) + '" alt="' + safe(problem.alt) + '">' +
     '<span class="support-visual-tag">' + safe(problem.label) + '</span>' +
-    '<span class="support-visual-label">SIMULAÇÃO ILUSTRATIVA</span></div>' +
+    '<span class="support-visual-label">IMAGEM GERADA POR IA</span></div>' +
     '<div class="support-case-body">' +
     '<span class="support-case-eyebrow">' + safe(problem.eyebrow) + '</span>' +
     '<h3>' + safe(problem.title) + '</h3>' +
