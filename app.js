@@ -249,3 +249,103 @@ loadCart();
 updateCartCounts();
 renderProducts();
 renderCart();
+
+
+/* Mural dia/noite: controles reais, rotação respeitosa e suporte a toque. */
+function setupHeroCarousel() {
+  const carousel = $("#heroCarousel");
+  if (!carousel) return;
+  const slides = $$("[data-hero-slide]", carousel);
+  const dots = $$("[data-slide-to]", carousel);
+  const prev = $("#heroPrev");
+  const next = $("#heroNext");
+  const status = $("#heroSlideStatus");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const names = ["Piscina durante o dia", "Piscina à noite com iluminação"];
+  let active = 0;
+  let autoTimer = null;
+  let userSelected = false;
+  let pointerInside = false;
+  let touchStart = null;
+
+  function showSlide(nextIndex, announceChange=false) {
+    active = (nextIndex + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+      const selected = i === active;
+      slide.classList.toggle("is-active", selected);
+      slide.setAttribute("aria-hidden", String(!selected));
+    });
+    dots.forEach((dot, i) => {
+      const selected = i === active;
+      dot.classList.toggle("is-active", selected);
+      dot.setAttribute("aria-pressed", String(selected));
+    });
+    // Mudanças automáticas não inundam anúncios dos leitores de tela.
+    if (announceChange) status.textContent = names[active];
+  }
+
+  function pauseAuto() {
+    if (autoTimer !== null) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  function canAutoPlay() {
+    return !userSelected && !pointerInside && !document.hidden &&
+      !reducedMotion.matches && !carousel.contains(document.activeElement);
+  }
+
+  function scheduleAuto() {
+    pauseAuto();
+    if (!canAutoPlay()) return;
+    autoTimer = window.setInterval(() => {
+      if (!canAutoPlay()) { pauseAuto(); return; }
+      showSlide(active + 1, false);
+    }, 8000);
+  }
+
+  function navigate(index) {
+    userSelected = true;
+    pauseAuto();
+    showSlide(index, true);
+  }
+
+  prev.addEventListener("click", () => navigate(active - 1));
+  next.addEventListener("click", () => navigate(active + 1));
+  dots.forEach((dot, i) => dot.addEventListener("click", () => navigate(i)));
+
+  carousel.addEventListener("mouseenter", () => {
+    pointerInside = true;
+    pauseAuto();
+  });
+  carousel.addEventListener("mouseleave", () => {
+    pointerInside = false;
+    scheduleAuto();
+  });
+  carousel.addEventListener("focusin", pauseAuto);
+  carousel.addEventListener("focusout", () => {
+    window.requestAnimationFrame(scheduleAuto);
+  });
+  document.addEventListener("visibilitychange", scheduleAuto);
+  reducedMotion.addEventListener("change", scheduleAuto);
+
+  carousel.addEventListener("touchstart", event => {
+    if (event.touches.length !== 1) return;
+    touchStart = { x: event.touches[0].clientX, y: event.touches[0].clientY };
+  }, { passive: true });
+  carousel.addEventListener("touchend", event => {
+    if (!touchStart || !event.changedTouches.length) return;
+    const dx = event.changedTouches[0].clientX - touchStart.x;
+    const dy = event.changedTouches[0].clientY - touchStart.y;
+    touchStart = null;
+    if (Math.abs(dx) >= 45 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+      navigate(active + (dx < 0 ? 1 : -1));
+    }
+  }, { passive: true });
+  carousel.addEventListener("touchcancel", () => { touchStart = null; });
+
+  showSlide(0);
+  scheduleAuto();
+}
+setupHeroCarousel();

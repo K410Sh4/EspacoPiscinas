@@ -310,3 +310,33 @@ svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-l
 .brand-footer{background:transparent;padding:0;border-radius:0}
 .brand-footer .brand-official-logo{width:214px;height:auto;aspect-ratio:1847/770}
 @media(max-width:650px){.header-inner{min-height:75px}.site-header .brand-official-logo{width:145px;height:auto}.brand-footer .brand-official-logo{width:184px}}
+
+/* Carrossel do mural principal: dia e iluminação noturna. */
+.hero-carousel{background:#073a55}
+.hero-carousel .hero-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .55s ease,visibility .55s ease;pointer-events:none}
+.hero-carousel .hero-slide.is-active{opacity:1;visibility:visible;z-index:1;pointer-events:auto}
+.hero-carousel .hero-slide>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-carousel .hero-slide--night>img{object-position:center}
+.hero-carousel .hero-photo-shade{pointer-events:none}
+.hero-carousel .hero-float{z-index:2;max-width:calc(100% - 210px)}
+.hero-carousel .hero-float--night .float-symbol{background:rgba(6,37,78,.13);color:#06254e}
+.hero-carousel .hero-float--night strong{line-height:1.45}
+.hero-carousel .hero-float--night div span{line-height:1.5}
+.hero-carousel-controls{position:absolute;z-index:5;right:18px;bottom:29px;display:flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.34);border-radius:999px;padding:6px;background:rgba(5,34,58,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.hero-carousel-arrow{display:grid;place-items:center;width:34px;height:34px;flex:none;padding:0;border:0;border-radius:50%;background:rgba(255,255,255,.13);color:white;transition:background .2s,transform .2s}
+.hero-carousel-arrow:hover{background:rgba(255,255,255,.32)}
+.hero-carousel-arrow:active{transform:scale(.95)}
+.hero-carousel-arrow .icon{width:17px;height:17px}
+.hero-carousel-prev .icon{transform:rotate(180deg)}
+.hero-carousel-dots{display:flex;align-items:center;gap:8px;padding:0 3px}
+.hero-carousel-dot{height:12px;width:12px;min-width:12px;padding:0;border:1.5px solid #fff;border-radius:100px;background:transparent;transition:background .2s,width .2s}
+.hero-carousel-dot.is-active{width:25px;background:#05f3db;border-color:#05f3db}
+.hero-carousel :is(.hero-carousel-arrow,.hero-carousel-dot):focus-visible{outline:3px solid #fff;outline-offset:3px}
+@media(max-width:650px){
+ .hero-carousel .hero-float{left:13px;bottom:77px;max-width:calc(100% - 26px);padding:12px 14px}
+ .hero-carousel .hero-float .float-symbol{width:38px;height:38px;flex:none}
+ .hero-carousel .hero-float strong{font-size:11px;line-height:1.4}
+ .hero-carousel .hero-float div span{font-size:10px;line-height:1.45}
+ .hero-carousel-controls{right:13px;bottom:13px}
+}
+@media(prefers-reduced-motion:reduce){.hero-carousel .hero-slide{transition:none}.hero-carousel-dot,.hero-carousel-arrow{transition:none}}

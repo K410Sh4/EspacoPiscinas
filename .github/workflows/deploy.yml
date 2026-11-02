@@ -52,7 +52,7 @@ jobs:
           checker.feed(Path('index.html').read_text(encoding='utf-8'))
           assert './app.js' in checker.scripts
           assert './styles.css' in checker.styles
-          assert {'productGrid','cartDrawer','quickQuoteForm','cartItems','categoryFilter','searchInput'} <= checker.ids
+          assert {'productGrid','cartDrawer','quickQuoteForm','cartItems','categoryFilter','searchInput','heroCarousel','heroPrev','heroNext','heroSlideStatus'} <= checker.ids
           print('Estrutura e recursos principais presentes.')
           PY
       - name: Configurar GitHub Pages

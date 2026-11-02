@@ -65,11 +65,34 @@
           <div class="hero-actions"><a class="btn btn-primary" href="#catalogo">Ver produtos <svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></a><a class="btn btn-text" href="#orcamento">Tirar minhas dúvidas <span aria-hidden="true">↗</span></a></div>
           <div class="hero-note"><span class="avatar-mark"><svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg></span><div><strong>Atendimento próximo de você</strong><small>Loja física em Alfenas • MG</small></div></div>
         </div>
-        <div class="hero-visual">
-          <img src="https://images.unsplash.com/photo-1741277031817-146e7ed13f8d?auto=format&amp;fit=crop&amp;w=1450&amp;q=82" width="1000" height="1150" alt="Piscina azul com deck em uma área externa ensolarada; imagem ilustrativa" fetchpriority="high">
-          <div class="hero-photo-shade"></div>
-          <div class="hero-float"><span class="float-symbol"><svg class="icon" aria-hidden="true"><use href="#i-sun"></use></svg></span><div><strong>O cuidado certo para sua piscina</strong><span>Consulte produtos e acessórios</span></div></div>
-          <div class="hero-caption">IMAGEM ILUSTRATIVA</div>
+        <div class="hero-visual hero-carousel" id="heroCarousel" role="region" aria-roledescription="carrossel" aria-label="Piscinas durante o dia e à noite">
+          <div class="hero-slide is-active" data-hero-slide="dia" aria-hidden="false">
+            <img src="https://images.unsplash.com/photo-1741277031817-146e7ed13f8d?auto=format&amp;fit=crop&amp;w=1450&amp;q=82" width="1000" height="1150" alt="Piscina residencial azul com deck de madeira e palmeiras durante o dia; imagem ilustrativa" fetchpriority="high">
+            <div class="hero-photo-shade"></div>
+            <div class="hero-float">
+              <span class="float-symbol"><svg class="icon" aria-hidden="true"><use href="#i-sun"></use></svg></span>
+              <div><strong>O cuidado certo para sua piscina</strong><span>Consulte produtos e acessórios para a água</span></div>
+            </div>
+            <div class="hero-caption">IMAGEM ILUSTRATIVA • DIA</div>
+          </div>
+          <div class="hero-slide hero-slide--night" data-hero-slide="noite" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1761254088615-3feefa51fe8c?auto=format&amp;fit=crop&amp;w=1450&amp;q=82" width="1000" height="1150" alt="Piscina cercada por palmeiras à noite com a água iluminada; imagem ilustrativa" loading="lazy" decoding="async">
+            <div class="hero-photo-shade"></div>
+            <div class="hero-float hero-float--night">
+              <span class="float-symbol"><svg class="icon" aria-hidden="true"><use href="#i-light"></use></svg></span>
+              <div><strong>À noite, a iluminação transforma o ambiente</strong><span>Consulte opções LED próprias para piscinas</span></div>
+            </div>
+            <div class="hero-caption">IMAGEM ILUSTRATIVA • NOITE</div>
+          </div>
+          <div class="hero-carousel-controls" role="group" aria-label="Navegar entre piscinas de dia e à noite">
+            <button class="hero-carousel-arrow hero-carousel-prev" type="button" id="heroPrev" aria-label="Ver imagem anterior"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button>
+            <div class="hero-carousel-dots" role="group" aria-label="Escolher imagem">
+              <button type="button" class="hero-carousel-dot is-active" data-slide-to="0" aria-label="Mostrar piscina de dia" aria-pressed="true"></button>
+              <button type="button" class="hero-carousel-dot" data-slide-to="1" aria-label="Mostrar piscina à noite" aria-pressed="false"></button>
+            </div>
+            <button class="hero-carousel-arrow" type="button" id="heroNext" aria-label="Ver próxima imagem"><svg class="icon" aria-hidden="true"><use href="#i-arrow"></use></svg></button>
+          </div>
+          <span class="sr-only" id="heroSlideStatus" role="status" aria-live="polite" aria-atomic="true"></span>
         </div>
       </div>
       <div class="hero-decor" aria-hidden="true"></div>

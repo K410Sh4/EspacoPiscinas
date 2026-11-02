@@ -60,3 +60,14 @@ Nenhuma identidade societária, autorização comercial ou disponibilidade de es
 - `assets/favicon.svg`: ícone da aba com o símbolo da onda e gotas sobre fundo azul-marinho.
 - O cabeçalho adotou o fundo azul-marinho para manter contraste suficiente com a logo branca.
 - As imagens são traçadas com curvas aproximadas, não arquivos oficiais editáveis originais da empresa.
+
+## Carrossel do mural principal — dia e noite
+
+O mural do início possui dois slides ilustrativos:
+- **Dia:** fotografia de piscina com deck e card sobre cuidados com a água (fotografia já existente, Luis Redondo/Unsplash).
+- **Noite:** piscina iluminada, com card de orientação para consultar iluminação LED própria para piscinas (Luan Fonseca/Unsplash: https://unsplash.com/photos/illuminated-swimming-pool-at-night-surrounded-by-palm-trees-zZkRzighcII).
+
+Controles: setas, indicadores, deslizar no celular e avanço automático a cada oito segundos.
+O avanço para quando o usuário interage, quando o mouse está sobre o mural, durante foco de teclado e quando a página está oculta. Respeita `prefers-reduced-motion`. A alteração de slide não dispara anúncios excessivos de leitores de tela. O layout e as dicas são responsivos. Não representa trabalhos realizados pela loja.
+
+No projeto HTML/CSS/JS, os arquivos relacionados são `index.html` (estrutura), `styles.css` (aparência), `app.js` (navegação e pausa).
