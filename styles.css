@@ -340,3 +340,18 @@ svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-l
  .hero-carousel-controls{right:13px;bottom:13px}
 }
 @media(prefers-reduced-motion:reduce){.hero-carousel .hero-slide{transition:none}.hero-carousel-dot,.hero-carousel-arrow{transition:none}}
+
+/* Digitação no trecho final do hero, sem deslocar o layout.
+   A camada de reserva mantém a largura final durante a animação. */
+.hero h1 .hero-typing-line{position:relative;display:block;width:max-content;max-width:100%}
+.hero h1 .hero-typing-reserve{display:block;visibility:hidden;white-space:nowrap}
+.hero h1 .hero-typing-output{position:absolute;inset:0 auto auto 0;display:inline-block;width:max-content;white-space:nowrap}
+.hero h1 .hero-typing-output.is-typing::after{
+  content:"";display:inline-block;vertical-align:-.07em;
+  width:2px;height:.87em;margin-left:3px;background:currentColor;
+  animation:hero-caret-blink .7s steps(1,end) infinite
+}
+@keyframes hero-caret-blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){
+  .hero h1 .hero-typing-output.is-typing::after{animation:none}
+}

@@ -349,3 +349,54 @@ function setupHeroCarousel() {
   scheduleAuto();
 }
 setupHeroCarousel();
+
+
+/* Revela "em Alfenas?" apenas uma vez, preservando a frase para leitores de tela
+   e exibindo imediatamente o texto completo se o usuário reduz animações. */
+function setupHeroTyping() {
+  const output = document.getElementById("heroTypingOutput");
+  if (!output) return;
+
+  const fullText = output.textContent;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (reducedMotion.matches) return;
+
+  const characters = Array.from(fullText);
+  let position = 0;
+  let intervalId = null;
+  let initialDelay = null;
+  let finishDelay = null;
+
+  const finish = () => {
+    clearTimeout(initialDelay);
+    clearInterval(intervalId);
+    clearTimeout(finishDelay);
+    output.textContent = fullText;
+    output.classList.remove("is-typing");
+  };
+
+  const onMotionChange = () => {
+    if (reducedMotion.matches) {
+      finish();
+      reducedMotion.removeEventListener("change", onMotionChange);
+    }
+  };
+  reducedMotion.addEventListener("change", onMotionChange);
+
+  output.textContent = "";
+  output.classList.add("is-typing");
+  initialDelay = window.setTimeout(() => {
+    intervalId = window.setInterval(() => {
+      position += 1;
+      output.textContent = characters.slice(0, position).join("");
+      if (position >= characters.length) {
+        clearInterval(intervalId);
+        finishDelay = window.setTimeout(() => {
+          output.classList.remove("is-typing");
+          reducedMotion.removeEventListener("change", onMotionChange);
+        }, 850);
+      }
+    }, 105);
+  }, 400);
+}
+setupHeroTyping();

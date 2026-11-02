@@ -71,3 +71,7 @@ Controles: setas, indicadores, deslizar no celular e avanço automático a cada 
 O avanço para quando o usuário interage, quando o mouse está sobre o mural, durante foco de teclado e quando a página está oculta. Respeita `prefers-reduced-motion`. A alteração de slide não dispara anúncios excessivos de leitores de tela. O layout e as dicas são responsivos. Não representa trabalhos realizados pela loja.
 
 No projeto HTML/CSS/JS, os arquivos relacionados são `index.html` (estrutura), `styles.css` (aparência), `app.js` (navegação e pausa).
+
+## Digitação do título principal
+
+O trecho “em Alfenas?” aparece letra a letra uma vez no carregamento. A primeira parte do título fica fixa, e uma camada invisível reserva a largura final para impedir deslocamentos. O texto permanece disponível integralmente a leitores de tela. A animação não inicia quando a preferência do sistema é por movimento reduzido, e pode ser interrompida por essa preferência. O conteúdo completo é exibido normalmente com JavaScript desativado.
