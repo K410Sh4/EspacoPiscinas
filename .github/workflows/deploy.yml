@@ -42,6 +42,10 @@ jobs:
           test -s suporte.html
           test -s support.css
           test -s support.js
+          test -s assets/marcas/hth-card.jpg
+          test -s assets/marcas/genco-card.jpg
+          test -s assets/marcas/montreal-card.jpg
+          test -s assets/marcas/fluidra-card.jpg
           test -s avaliacoes.html
           test -s reviews.css
           test -s reviews.js

@@ -47,17 +47,18 @@ function announce(message) {
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => { toast.hidden = true; }, 3000);
 }
-/* Logotipos oficiais enviados pela loja — arquivos locais e sem dependências externas. */
-const BRAND_LOGOS = Object.freeze({
-  HTH: {src:"./assets/marcas/hth-oficial.svg",alt:"Logotipo HTH",width:95,height:97},
-  Genco: {src:"./assets/marcas/genco-oficial.svg",alt:"Logotipo Genco",width:282,height:73},
-  Montreal: {src:"./assets/marcas/montreal-oficial.svg",alt:"Logotipo Montreal",width:245,height:116},
-  Fluidra: {src:"./assets/marcas/fluidra-oficial.svg",alt:"Logotipo Fluidra Brasil",width:216,height:72}
+/* Artes ilustrativas enviadas para a Central de Ajuda.
+   Identificam a marca, não representam uma embalagem ou produto específico. */
+const BRAND_CARD_IMAGES = Object.freeze({
+  HTH: {src:"./assets/marcas/hth-card.jpg",alt:"Arte ilustrativa da marca HTH"},
+  Genco: {src:"./assets/marcas/genco-card.jpg",alt:"Arte ilustrativa da marca Genco"},
+  Montreal: {src:"./assets/marcas/montreal-card.jpg",alt:"Arte ilustrativa da marca Montreal"},
+  Fluidra: {src:"./assets/marcas/fluidra-card.jpg",alt:"Arte ilustrativa da marca Fluidra Brasil"}
 });
 function brandArtwork(product) {
-  const logo = BRAND_LOGOS[product.brand];
-  if (!logo) return icon("i-droplet");
-  return '<img class="support-brand-logo" src="' + logo.src + '" alt="' + logo.alt + '" loading="lazy" decoding="async" width="' + logo.width + '" height="' + logo.height + '">';
+  const art = BRAND_CARD_IMAGES[product.brand];
+  if (!art) return icon("i-droplet");
+  return '<img class="support-brand-logo" src="' + art.src + '" alt="' + art.alt + '" loading="lazy" decoding="async" width="640" height="640">';
 }
 function optionTemplate(product) {
   const count = amount(product.id);

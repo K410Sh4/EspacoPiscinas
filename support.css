@@ -132,3 +132,24 @@
 .support-option--montreal .support-option-media img{width:90%;height:46%}
 .support-option--fluidra .support-option-media img{width:88%;height:46%}
 @media(max-width:350px){.support-option-main{grid-template-columns:76px minmax(0,1fr)}.support-option-media{width:76px}}
+
+/* Substituição pontual das miniaturas: artes quadradas enviadas pela loja. */
+.support-option--hth .support-option-media,
+.support-option--genco .support-option-media,
+.support-option--montreal .support-option-media,
+.support-option--fluidra .support-option-media {
+  background-image:none;
+  background-color:transparent;
+}
+.support-option .support-option-media::before {display:none}
+.support-option .support-option-media img {
+  display:block;
+  position:relative;
+  width:100%;
+  height:100%;
+  aspect-ratio:1;
+  object-fit:cover;
+  border-radius:inherit;
+  padding:0;
+  filter:none;
+}

@@ -126,3 +126,13 @@ Para moderar: confirme pelo WhatsApp a autorização de uso de nome, cidade, not
 Isso é apenas um **exemplo de formato**, não uma avaliação real. Publicar um comentário real requer consentimento de quem o fez. Excluir o registro no GitHub não garante remoção das versões anteriores do histórico público do repositório; evite armazenar dados privados ou sensíveis. Atenda pedidos de correção ou retirada.
 
 Os depoimentos públicos são explicitamente **selecionados** (apenas 4–5 estrelas autorizadas). O site avisa que notas 1–3 permanecem privadas e não representa essa seleção como a média de todas as opiniões recebidas.
+
+## Artes dos cards das quatro marcas
+
+Na Central de Ajuda (`suporte.html`), as miniaturas dos cards de HTH, Genco, Montreal e Fluidra foram substituídas pelas imagens enviadas pelo usuário. Os arquivos locais são:
+- `assets/marcas/hth-card.jpg`
+- `assets/marcas/genco-card.jpg`
+- `assets/marcas/montreal-card.jpg`
+- `assets/marcas/fluidra-card.jpg`
+
+A arte é reutilizada por marca nos diferentes produtos. São **imagens ilustrativas das marcas, não fotografias dos produtos específicos/embalagens comerciais**, e a disponibilidade de cada produto permanece sob consulta. O catálogo, os nomes, os links oficiais, a lógica de recomendação e o carrinho não foram alterados. A publicação permanece exclusivamente no GitHub Pages.
