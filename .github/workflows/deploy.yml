@@ -41,6 +41,7 @@ jobs:
           test -s catalog.js
           test -s suporte.html
           test -s support.css
+          test -s assets/ui/card-water-wave.svg
           test -s support.js
           test -s assets/marcas/hth-card.jpg
           test -s assets/marcas/genco-card.jpg

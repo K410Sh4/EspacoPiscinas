@@ -136,3 +136,7 @@ Na Central de Ajuda (`suporte.html`), as miniaturas dos cards de HTH, Genco, Mon
 - `assets/marcas/fluidra-card.jpg`
 
 A arte é reutilizada por marca nos diferentes produtos. São **imagens ilustrativas das marcas, não fotografias dos produtos específicos/embalagens comerciais**, e a disponibilidade de cada produto permanece sob consulta. O catálogo, os nomes, os links oficiais, a lógica de recomendação e o carrinho não foram alterados. A publicação permanece exclusivamente no GitHub Pages.
+
+## Estilo dos cards na Central de Ajuda
+
+Os cartões de produtos da Central de Ajuda (`support.css`) foram redesenhados com base no layout de referência aprovado: vidro claro, degradês aquáticos suaves, borda de destaque da marca, miniatura quadrada, etiqueta “SOB CONSULTA”, hierarquia de texto compacta e botão azul-marinho com contorno turquesa. O elemento vetorial decorativo próprio está em `assets/ui/card-water-wave.svg` e não contém informações de produto. O carrossel, outras páginas, catálogo e lógica de orçamento não foram modificados. O CSS antigo e as regras contraditórias de miniatura foram consolidados. Layout adaptado a celular e `prefers-reduced-motion`.

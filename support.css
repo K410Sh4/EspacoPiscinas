@@ -55,42 +55,234 @@
 .support-case-hint{border-left:3px solid #09cbbd;background:#e9faf7;border-radius:0 8px 8px 0;padding:11px 14px;color:#264e5e;font-size:11px;line-height:1.7;margin:6px 0 14px}
 .support-case-hint strong{color:#0a5666}
 .support-case-products-title{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:#688794;margin:13px 0}
-.support-option-list{display:flex;flex-direction:column;gap:12px;margin-top:auto}
-.support-option{--brand-accent:#007f79;--brand-ink:#11445a;--brand-surface:#f1faf9;--brand-edge:#cae6e3;position:relative;overflow:hidden;border:1px solid var(--brand-edge);border-radius:16px;padding:15px;background:linear-gradient(115deg,var(--brand-surface),#fff 58%);box-shadow:0 4px 15px rgba(4,45,65,.035);transition:transform .18s,box-shadow .18s}
-.support-option::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--brand-accent)}
-.support-option--hth{--brand-accent:#dc1434;--brand-ink:#092a60;--brand-surface:#f5f8ff;--brand-edge:#cbd8ef;--brand-button:#092d67}
-.support-option--genco{--brand-accent:#c71b27;--brand-ink:#8b1b22;--brand-surface:#fff9db;--brand-edge:#efdda1;--brand-button:#ad2030}
-.support-option--montreal{--brand-accent:#00a9ce;--brand-ink:#07506c;--brand-surface:#eafaff;--brand-edge:#b8e5ef;--brand-button:#07607a}
-.support-option--fluidra{--brand-accent:#07a7d3;--brand-ink:#0a396f;--brand-surface:#ecf7ff;--brand-edge:#badbea;--brand-button:#0a3678}
-.support-option-main{display:grid;grid-template-columns:124px minmax(0,1fr);align-items:center;gap:17px}
-.support-option-media{width:124px;aspect-ratio:1;height:auto;min-width:0;position:relative;isolation:isolate;display:grid;place-items:center;overflow:hidden;border:1px solid var(--brand-edge);border-radius:14px;background-color:var(--brand-surface);background-size:cover;background-position:center;box-shadow:0 6px 16px rgba(4,46,66,.12)}
-.support-option--hth .support-option-media{background-image:url("./assets/marcas/hth-card-background.svg")}
-.support-option--montreal .support-option-media{background-image:url("./assets/marcas/montreal-card-background.svg")}
-.support-option--genco .support-option-media{background-image:url("./assets/marcas/genco-card-background.svg")}
-.support-option--fluidra .support-option-media{background-image:url("./assets/marcas/fluidra-card-background.svg");border-color:#157eb3}
-.support-option-media::before{content:"";position:absolute;z-index:0;inset:30% 5%;border-radius:10px;background:var(--logo-plate);box-shadow:0 6px 20px rgba(0,0,0,.16)}
-.support-option--hth .support-option-media{--logo-plate:#f8fbff}
-.support-option--genco .support-option-media{--logo-plate:#ffdb0f}
-.support-option--montreal .support-option-media{--logo-plate:#122a34}
-.support-option--fluidra .support-option-media{--logo-plate:#123968}
-.support-option-media img{display:block;position:relative;z-index:1;width:88%;height:48%;object-fit:contain;padding:0;filter:drop-shadow(0 1px 1px rgba(0,0,0,.04))}
-.support-option--hth .support-option-media::before{inset:15% 20%}
-.support-option--hth .support-option-media img{width:59%;height:72%}
+/* Product alternatives: premium glass-wave cards inspired by the approved layout.
+   No content or cart interaction depends on the decorative layers. */
+.support-option-list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:auto;
+}
+.support-option{
+  --brand-accent:#07a9c2;
+  --brand-ink:#153b55;
+  --brand-surface:#e9f9fe;
+  --brand-edge:#c3e2ea;
+  --water-color:#e5f8fd;
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  padding:14px 15px 14px 18px;
+  border:1px solid var(--brand-edge);
+  border-radius:22px;
+  background:
+    radial-gradient(ellipse at 95% 100%,var(--water-color),transparent 61%),
+    linear-gradient(115deg,rgba(255,255,255,.98),#f8fcff 70%,#f3faff);
+  box-shadow:0 9px 24px rgba(8,44,70,.09),0 2px 7px rgba(8,44,70,.04);
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease;
+}
+.support-option::before{
+  content:"";
+  position:absolute;
+  z-index:2;
+  inset:0 auto 0 0;
+  width:6px;
+  border-radius:22px 0 0 22px;
+  background:linear-gradient(180deg,var(--brand-accent),var(--brand-accent) 55%,var(--brand-secondary,var(--brand-accent)));
+  pointer-events:none;
+}
+.support-option::after{
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:auto -1px -1px auto;
+  width:80%;
+  height:89%;
+  background:url("./assets/ui/card-water-wave.svg") right bottom / contain no-repeat;
+  opacity:.82;
+  pointer-events:none;
+}
+.support-option--hth{
+  --brand-accent:#e51f40;
+  --brand-secondary:#ff4365;
+  --brand-ink:#0c3265;
+  --brand-surface:#ecf4ff;
+  --brand-edge:#c8e2f1;
+  --water-color:#e2f6fe;
+}
+.support-option--genco{
+  --brand-accent:#ed2c36;
+  --brand-secondary:#ffb400;
+  --brand-ink:#b01e30;
+  --brand-surface:#fff6df;
+  --brand-edge:#f2e0bc;
+  --water-color:#fff3d3;
+}
+.support-option--montreal{
+  --brand-accent:#13bfd8;
+  --brand-secondary:#00e4e1;
+  --brand-ink:#057487;
+  --brand-surface:#e6fbff;
+  --brand-edge:#b7e8f0;
+  --water-color:#dffaff;
+}
+.support-option--fluidra{
+  --brand-accent:#1683ed;
+  --brand-secondary:#01bde9;
+  --brand-ink:#18417f;
+  --brand-surface:#e9f4ff;
+  --brand-edge:#c5e4fb;
+  --water-color:#e0f4ff;
+}
+.support-option-main{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:124px minmax(0,1fr);
+  gap:17px;
+  align-items:center;
+  min-width:0;
+}
+.support-option-media{
+  display:block;
+  width:124px;
+  aspect-ratio:1;
+  position:relative;
+  overflow:hidden;
+  border:3px solid rgba(255,255,255,.96);
+  border-radius:18px;
+  background:var(--brand-surface);
+  box-shadow:0 9px 16px rgba(13,55,78,.17),0 0 0 1px var(--brand-edge);
+}
+.support-option-media img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:14px;
+}
 .support-option-content{min-width:0}
-.support-option-top{display:flex;align-items:center;justify-content:space-between;gap:7px;flex-wrap:wrap}
-.support-option-brand{display:inline-flex;align-items:center;min-height:24px;padding:4px 9px;border-radius:6px;background:var(--brand-surface);border:1px solid var(--brand-edge);color:var(--brand-ink);font-size:10px;font-weight:850;letter-spacing:.02em}
-.support-option .product-category{font-size:9px;color:#677f89;letter-spacing:.04em}
-.support-option h4{font-size:13px;line-height:1.48;color:#15384d;margin:9px 0 5px;overflow-wrap:break-word}
-.support-option p{font-size:11px;color:#617983;line-height:1.65;margin:0}
-.support-option-actions{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-top:13px;flex-wrap:wrap}
-.support-option-actions a{color:var(--brand-ink);text-decoration:underline;text-underline-offset:3px;font-size:11px;font-weight:750}
-.support-option-actions a:hover{color:var(--brand-accent)}
-.support-add{background:var(--brand-ink);color:#fff;border:0;border-radius:9px;min-height:38px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 12px;font-size:10px;font-weight:800;transition:filter .18s,transform .18s}
-.support-add:hover{filter:brightness(1.11);transform:translateY(-1px)}
+.support-option-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.support-option-brand{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:26px;
+  padding:4px 11px;
+  border:1px solid var(--brand-edge);
+  border-radius:9px;
+  background:var(--brand-surface);
+  color:var(--brand-ink);
+  font-size:10px;
+  font-weight:850;
+}
+.support-option .product-category{
+  border-radius:999px;
+  padding:5px 9px;
+  color:#536a81;
+  background:rgba(232,241,249,.86);
+  font-size:9px;
+  letter-spacing:.035em;
+  font-weight:800;
+  white-space:nowrap;
+  text-transform:uppercase;
+}
+.support-option h4{
+  margin:10px 0 5px;
+  color:#102c4f;
+  font-size:14px;
+  font-weight:800;
+  line-height:1.4;
+  overflow-wrap:anywhere;
+}
+.support-option p{
+  color:#567083;
+  font-size:11px;
+  line-height:1.6;
+  margin:0;
+}
+.support-option-actions{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:17px;
+  padding-top:11px;
+  border-top:1px solid rgba(179,207,222,.52);
+}
+.support-option-actions a{
+  color:var(--brand-ink);
+  font-size:11px;
+  font-weight:800;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  text-decoration-thickness:1px;
+}
+.support-option-actions a:hover{color:#027b99}
+.support-add{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  min-height:40px;
+  padding:9px 13px;
+  border:1px solid #05c4df;
+  border-radius:13px;
+  background:linear-gradient(160deg,#08476d,#06254e 85%);
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  white-space:nowrap;
+  box-shadow:0 5px 12px rgba(5,47,81,.17),0 0 0 2px rgba(4,201,219,.13);
+  transition:transform .18s ease,background .18s ease,box-shadow .18s ease;
+}
 .support-add svg{width:15px;height:15px}
-.support-option :is(a,button):focus-visible{outline:3px solid var(--brand-accent);outline-offset:3px}
-@media(hover:hover){.support-option:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(4,45,65,.09)}}
-@media(max-width:480px){.support-option{padding:12px}.support-option-main{grid-template-columns:90px minmax(0,1fr);gap:12px}.support-option-media{width:90px;height:auto}.support-option h4{font-size:12px}.support-option p{font-size:10px}.support-brand-lettermark--hth{font-size:24px}.support-brand-lettermark--montreal{font-size:12px}.support-option-actions{align-items:flex-start}}
+.support-option :is(a,button):focus-visible{
+  outline:3px solid var(--brand-accent);
+  outline-offset:3px;
+}
+@media(hover:hover){
+  .support-option:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(8,44,70,.13),0 3px 9px rgba(8,44,70,.05);
+  }
+  .support-add:hover{
+    transform:translateY(-2px);
+    background:linear-gradient(160deg,#0a5e88,#063352 90%);
+    box-shadow:0 8px 20px rgba(5,47,81,.22),0 0 0 3px rgba(4,201,219,.18);
+  }
+}
+@media(max-width:520px){
+  .support-option{padding:12px 12px 12px 15px;border-radius:17px}
+  .support-option-main{grid-template-columns:96px minmax(0,1fr);gap:12px}
+  .support-option-media{width:96px;border-radius:14px}
+  .support-option-media img{border-radius:10px}
+  .support-option h4{font-size:12px;margin:8px 0 5px}
+  .support-option p{font-size:10px}
+  .support-option-actions{margin-top:11px}
+  .support-option-brand{font-size:10px;padding:3px 8px;min-height:24px}
+  .support-option .product-category{font-size:8px;padding:4px 6px}
+  .support-add{font-size:10px;min-height:39px}
+  .support-option::after{width:90%;height:68%;opacity:.63}
+}
+@media(max-width:390px){
+  .support-option-main{grid-template-columns:80px minmax(0,1fr);gap:10px}
+  .support-option-media{width:80px}
+  .support-option-actions{align-items:stretch}
+  .support-option-actions a{display:block;width:100%}
+  .support-add{width:100%;white-space:normal}
+}
+@media(prefers-reduced-motion:reduce){
+  .support-option,.support-add{transition:none}
+  .support-option:hover,.support-add:hover{transform:none}
+}
 .support-case-warning{font-size:10px;color:#777b89;line-height:1.75;margin:16px 0 0}
 .support-empty{text-align:center;padding:55px 20px;border:1px dashed #beded9;border-radius:22px}
 .support-empty h3{font-size:19px}
@@ -114,42 +306,10 @@
 @media(max-width:1020px){.support-hero-grid{gap:32px}.support-intro-grid{grid-template-columns:48px 1fr}.support-intro-grid a{grid-column:2}.support-safety-grid{gap:40px}}
 @media(max-width:760px){.support-grid{grid-template-columns:1fr}.support-hero-grid{grid-template-columns:1fr;gap:34px;padding-block:55px}.support-hero-visual{height:310px;border-radius:55px 18px 55px 18px}.support-hero h1{font-size:clamp(34px,7vw,49px)}.support-safety-grid{grid-template-columns:1fr}.support-final-inner{align-items:start;flex-direction:column}}
 @media(max-width:650px){.support-hero-grid{padding-top:38px}.support-hero h1{font-size:clamp(33px,8vw,46px)}.support-hero-copy>p:not(.eyebrow){font-size:12px}.support-breadcrumb{margin-bottom:26px}.support-hero-actions{gap:18px}.support-hero-actions .btn{width:100%}.support-brand-row{margin-top:24px}.support-hero-visual{height:280px}.support-intro-grid{grid-template-columns:1fr;gap:9px;padding-block:21px}.support-intro-grid a{grid-column:1}.support-intro-icon{width:42px;height:42px}.support-toolbar{flex-direction:column;gap:10px}.support-toolbar .select-field{flex:auto;width:100%;height:54px}.support-brand-filter button{padding:9px 13px}.support-results-row{align-items:start;flex-direction:column;gap:6px}.support-case-visual{height:190px}.support-case-body{padding:20px 16px}.support-option{padding:12px}.support-safety{padding-block:64px}.support-checklist{padding:10px 19px}.support-final-cta{padding-block:50px}}
-@media(max-width:350px){.support-option-actions{flex-direction:column;align-items:stretch}.support-add{width:100%}}
-@media(prefers-reduced-motion:reduce){.support-add{transition:none}}
+
 
 /* Fotografias ilustrativas únicas: enquadramento consistente nos cards. */
 .support-case-visual img{object-position:center center}
 
-@media(prefers-reduced-motion:reduce){.support-option,.support-add{transition:none}.support-option:hover,.support-add:hover{transform:none}}
 
-/* Artes quadradas com paleta individual: logo original sobre composição aquática 1:1. */
-.support-option{background:linear-gradient(112deg,var(--brand-surface),#fff 64%);border-color:var(--brand-edge)}
-.support-option::before{width:4px;background:var(--brand-accent)}
-.support-option .support-add{background:var(--brand-button);color:#fff;box-shadow:0 3px 9px rgba(6,42,78,.1)}
-.support-option .support-add:hover{background:var(--brand-ink);color:#fff;filter:brightness(1.12)}
-.support-option .support-add:focus-visible{outline:3px solid var(--brand-accent);outline-offset:3px}
-.support-option--genco .support-option-media img{width:88%;height:44%}
-.support-option--montreal .support-option-media img{width:90%;height:46%}
-.support-option--fluidra .support-option-media img{width:88%;height:46%}
-@media(max-width:350px){.support-option-main{grid-template-columns:76px minmax(0,1fr)}.support-option-media{width:76px}}
 
-/* Substituição pontual das miniaturas: artes quadradas enviadas pela loja. */
-.support-option--hth .support-option-media,
-.support-option--genco .support-option-media,
-.support-option--montreal .support-option-media,
-.support-option--fluidra .support-option-media {
-  background-image:none;
-  background-color:transparent;
-}
-.support-option .support-option-media::before {display:none}
-.support-option .support-option-media img {
-  display:block;
-  position:relative;
-  width:100%;
-  height:100%;
-  aspect-ratio:1;
-  object-fit:cover;
-  border-radius:inherit;
-  padding:0;
-  filter:none;
-}
