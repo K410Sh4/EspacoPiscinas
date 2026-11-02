@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://k410sh4.github.io/EspacoPiscinas/sitemap.xml
