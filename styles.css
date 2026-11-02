@@ -294,3 +294,19 @@ svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-l
  .hero h1{font-size:clamp(35px,8vw,52px)}
  .about-storefront{max-width:320px}
 }
+
+/* Marca vetorial fornecida pelo usuário: branco sobre azul-marinho. */
+.site-header{background:rgba(6,37,78,.98);border-bottom:1px solid rgba(255,255,255,.12)}
+.header-inner{min-height:94px}
+.site-header .brand-official-logo{display:block;width:196px;height:auto;aspect-ratio:1847/770;object-fit:contain}
+.nav-desktop a{color:#f0fffc}
+.nav-desktop a:hover,.nav-desktop a:focus-visible{color:#05f3db}
+.cart-trigger{background:#05f3db;color:#06254e}
+.cart-trigger:hover{background:#6affed}
+.cart-counter{background:#06254e;color:#fff}
+.menu-trigger{color:#f0fffc;border-color:#45708b}
+.mobile-nav{background:#06254e}
+.mobile-nav a{color:#f0fffc;border-bottom-color:rgba(255,255,255,.15)}
+.brand-footer{background:transparent;padding:0;border-radius:0}
+.brand-footer .brand-official-logo{width:214px;height:auto;aspect-ratio:1847/770}
+@media(max-width:650px){.header-inner{min-height:75px}.site-header .brand-official-logo{width:145px;height:auto}.brand-footer .brand-official-logo{width:184px}}

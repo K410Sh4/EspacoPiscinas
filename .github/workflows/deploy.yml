@@ -32,7 +32,7 @@ jobs:
           test -s styles.css
           test -s app.js
           test -s assets/favicon.svg
-          test -s assets/espaco-piscina-logo.png
+          test -s assets/espaco-piscina-logo.svg
           test -s assets/fachada-espaco-piscina.webp
           python3 - <<'PY'
           from html.parser import HTMLParser
@@ -61,7 +61,7 @@ jobs:
         run: |
           mkdir -p dist/assets
           cp index.html styles.css app.js robots.txt .nojekyll dist/
-          cp assets/favicon.svg assets/espaco-piscina-logo.png assets/fachada-espaco-piscina.webp dist/assets/
+          cp assets/favicon.svg assets/espaco-piscina-logo.svg assets/fachada-espaco-piscina.webp dist/assets/
       - name: Enviar site estático
         uses: actions/upload-pages-artifact@v3
         with:

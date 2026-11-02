@@ -48,8 +48,15 @@ O código deste site não inclui licença de reutilização. Verifique direitos 
 
 A revisão de identidade utiliza a arte publicitária fornecida como referência:
 - Azul-marinho aproximado `#06254e` e turquesa `#05f3db`.
-- O logotipo foi extraído da arte anexada e salvo em `assets/espaco-piscina-logo.png` (versão raster de baixa resolução). O arquivo original vetorial, se disponível, deverá substituí-lo para materiais grandes.
+- O logotipo foi extraído da arte anexada e salvo em `assets/espaco-piscina-logo.svg` (versão raster de baixa resolução). O arquivo original vetorial, se disponível, deverá substituí-lo para materiais grandes.
 - A foto de fachada em `assets/fachada-espaco-piscina.webp` é um recorte ilustrativo da arte fornecida; não é imagem atualizada e independente da loja.
 - O título principal agora segue o posicionamento do material: orientar o cliente antes de comprar produto inadequado para a água da piscina.
 
 Nenhuma identidade societária, autorização comercial ou disponibilidade de estoque é inferida a partir da imagem.
+
+## Logo e favicon vetoriais
+
+- `assets/espaco-piscina-logo.svg`: reconstrução vetorial a partir da imagem de alta resolução fornecida; utilizada no cabeçalho e rodapé.
+- `assets/favicon.svg`: ícone da aba com o símbolo da onda e gotas sobre fundo azul-marinho.
+- O cabeçalho adotou o fundo azul-marinho para manter contraste suficiente com a logo branca.
+- As imagens são traçadas com curvas aproximadas, não arquivos oficiais editáveis originais da empresa.
