@@ -140,3 +140,16 @@ A arte é reutilizada por marca nos diferentes produtos. São **imagens ilustrat
 ## Estilo dos cards na Central de Ajuda
 
 Os cartões de produtos da Central de Ajuda (`support.css`) foram redesenhados com base no layout de referência aprovado: vidro claro, degradês aquáticos suaves, borda de destaque da marca, miniatura quadrada, etiqueta “SOB CONSULTA”, hierarquia de texto compacta e botão azul-marinho com contorno turquesa. O elemento vetorial decorativo próprio está em `assets/ui/card-water-wave.svg` e não contém informações de produto. O carrossel, outras páginas, catálogo e lógica de orçamento não foram modificados. O CSS antigo e as regras contraditórias de miniatura foram consolidados. Layout adaptado a celular e `prefers-reduced-motion`.
+
+## Rodapé institucional (três páginas)
+
+O rodapé de `index.html`, `suporte.html` e `avaliacoes.html` usa os contatos e redes informados para a Espaço Piscina de Alfenas:
+
+- Instagram: https://www.instagram.com/espacopiscinamg/
+- Facebook: https://www.facebook.com/espacopiscinamg/
+- WhatsApp: https://wa.me/5535988124020
+- Vídeo antigo da loja: https://www.youtube.com/watch?v=EsJdfJQYQ4I (identificado como conteúdo de arquivo, não o canal atual da loja)
+- Razão social: Spaco Piscinas LTDA, CNPJ 23.751.119/0001-00; endereço: Rua João Pinheiro, 820, Jardim Boa Esperança IV, Alfenas/MG, CEP 37135-134. Cadastro público: https://cnpj.biz/23751119000100
+- Fixo (35) 3292-4120; WhatsApp (35) 98812-4020; horários habituais divulgados de segunda a sexta das 7h30 às 17h30, sábado das 8h às 12h.
+
+Para evitar simular registro comercial, apenas campos sustentados por cadastro público foram apresentados. É preciso manter dados e horários atualizados. A propriedade `sameAs` do JSON-LD Store referencia Instagram e Facebook. A hospedagem permanece no GitHub Pages.
