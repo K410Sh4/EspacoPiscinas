@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 512 512" role="img" aria-label="Arte decorativa de piscina">
+<defs>
+ <linearGradient id="base" x1="0" y1="0" x2=".95" y2="1"><stop stop-color="#f8fbff"/><stop offset="1" stop-color="#dfe9f6"/></linearGradient>
+ <linearGradient id="water" x1="0" y1="0" x2=".85" y2="1"><stop stop-color="#05d8ee" stop-opacity=".3"/><stop offset=".7" stop-color="#05d8ee" stop-opacity=".9"/><stop offset="1" stop-color="#0b2d64" stop-opacity=".7"/></linearGradient>
+ <linearGradient id="ribbon" x1="0" x2="1" y1="0" y2=".2"><stop stop-color="#e11432" stop-opacity=".78"/><stop offset=".55" stop-color="#0b2d64" stop-opacity=".25"/><stop offset="1" stop-color="#e11432" stop-opacity=".83"/></linearGradient>
+ <radialGradient id="shine"><stop stop-color="white" stop-opacity=".65"/><stop offset="1" stop-color="white" stop-opacity="0"/></radialGradient>
+ <pattern id="tiles" width="54" height="54" patternUnits="userSpaceOnUse"><path d="M0 0H54V54H0Z" fill="none" stroke="white" stroke-opacity=".18" stroke-width="2"/></pattern>
+ <filter id="soft"><feGaussianBlur stdDeviation="14"/></filter>
+</defs>
+<rect width="512" height="512" rx="26" fill="url(#base)"/>
+<path d="M-35 102 C90 80 145 16 274 63 C362 98 426 47 550 22 L550 -5 L-5 -5 Z" fill="url(#ribbon)" opacity=".9"/>
+<path d="M-8 377 C119 325 193 432 318 378 C394 341 460 341 525 361 L525 525 L-8 525Z" fill="url(#water)"/>
+<path d="M-8 408 C86 369 147 460 251 415 C346 375 442 407 526 386" fill="none" stroke="#05b7e5" stroke-width="9" opacity=".9"/>
+<path d="M-10 433 C116 391 168 474 277 436 C349 411 433 434 524 415" fill="none" stroke="white" stroke-width="3" stroke-opacity=".8"/>
+<path d="M-5 462 C116 429 200 492 326 464 C421 440 468 460 525 452" fill="none" stroke="white" stroke-width="2" stroke-opacity=".65"/>
+<path d="M0 378H512V512H0Z" fill="url(#tiles)" opacity=".62"/>
+<path d="M-24 338 C145 281 249 380 531 304" fill="none" stroke="#e11432" stroke-width="30" stroke-opacity=".28" filter="url(#soft)"/>
+<ellipse cx="391" cy="113" rx="105" ry="66" fill="url(#shine)" opacity=".26"/>
+<g fill="none" stroke="white" stroke-opacity=".34" stroke-width="3">
+ <circle cx="420" cy="96" r="21"/><circle cx="450" cy="160" r="9"/><circle cx="398" cy="175" r="5"/><circle cx="93" cy="156" r="7"/><circle cx="70" cy="200" r="13"/>
+</g>
+<path d="M0 512V420C93 454 181 472 278 443C364 418 456 442 512 461V512Z" fill="#0b2d64" fill-opacity=".08"/>
+</svg>

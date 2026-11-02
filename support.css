@@ -58,17 +58,24 @@
 .support-option-list{display:flex;flex-direction:column;gap:12px;margin-top:auto}
 .support-option{--brand-accent:#007f79;--brand-ink:#11445a;--brand-surface:#f1faf9;--brand-edge:#cae6e3;position:relative;overflow:hidden;border:1px solid var(--brand-edge);border-radius:16px;padding:15px;background:linear-gradient(115deg,var(--brand-surface),#fff 58%);box-shadow:0 4px 15px rgba(4,45,65,.035);transition:transform .18s,box-shadow .18s}
 .support-option::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--brand-accent)}
-.support-option--hth{--brand-accent:#d32636;--brand-ink:#0c2b62;--brand-surface:#f3f6fc;--brand-edge:#dbe3f2}
-.support-option--genco{--brand-accent:#c9272a;--brand-ink:#9b2527;--brand-surface:#fff8ee;--brand-edge:#f0e1cf}
-.support-option--montreal{--brand-accent:#087fab;--brand-ink:#0a577d;--brand-surface:#f0faff;--brand-edge:#ceeaf6}
-.support-option--fluidra{--brand-accent:#009bc6;--brand-ink:#06356e;--brand-surface:#eef9fb;--brand-edge:#cae9f2}
-.support-option-main{display:grid;grid-template-columns:120px minmax(0,1fr);align-items:start;gap:15px}
-.support-option-media{height:105px;min-width:0;display:grid;place-items:center;overflow:hidden;border:1px solid var(--brand-edge);border-radius:12px;background:#fff;color:var(--brand-ink)}
-.support-option--hth .support-option-media{background:#7f7f7f}
-.support-option--montreal .support-option-media{background:#1b1b1a}
-.support-option--genco .support-option-media{background:#ffdb08}
-.support-option--fluidra .support-option-media{background:#1a335f;border-color:#0f6189}
-.support-option-media img{display:block;max-width:100%;max-height:100%;width:100%;height:100%;object-fit:contain;padding:0}
+.support-option--hth{--brand-accent:#dc1434;--brand-ink:#092a60;--brand-surface:#f5f8ff;--brand-edge:#cbd8ef;--brand-button:#092d67}
+.support-option--genco{--brand-accent:#c71b27;--brand-ink:#8b1b22;--brand-surface:#fff9db;--brand-edge:#efdda1;--brand-button:#ad2030}
+.support-option--montreal{--brand-accent:#00a9ce;--brand-ink:#07506c;--brand-surface:#eafaff;--brand-edge:#b8e5ef;--brand-button:#07607a}
+.support-option--fluidra{--brand-accent:#07a7d3;--brand-ink:#0a396f;--brand-surface:#ecf7ff;--brand-edge:#badbea;--brand-button:#0a3678}
+.support-option-main{display:grid;grid-template-columns:124px minmax(0,1fr);align-items:center;gap:17px}
+.support-option-media{width:124px;aspect-ratio:1;height:auto;min-width:0;position:relative;isolation:isolate;display:grid;place-items:center;overflow:hidden;border:1px solid var(--brand-edge);border-radius:14px;background-color:var(--brand-surface);background-size:cover;background-position:center;box-shadow:0 6px 16px rgba(4,46,66,.12)}
+.support-option--hth .support-option-media{background-image:url("./assets/marcas/hth-card-background.svg")}
+.support-option--montreal .support-option-media{background-image:url("./assets/marcas/montreal-card-background.svg")}
+.support-option--genco .support-option-media{background-image:url("./assets/marcas/genco-card-background.svg")}
+.support-option--fluidra .support-option-media{background-image:url("./assets/marcas/fluidra-card-background.svg");border-color:#157eb3}
+.support-option-media::before{content:"";position:absolute;z-index:0;inset:30% 5%;border-radius:10px;background:var(--logo-plate);box-shadow:0 6px 20px rgba(0,0,0,.16)}
+.support-option--hth .support-option-media{--logo-plate:#f8fbff}
+.support-option--genco .support-option-media{--logo-plate:#ffdb0f}
+.support-option--montreal .support-option-media{--logo-plate:#122a34}
+.support-option--fluidra .support-option-media{--logo-plate:#123968}
+.support-option-media img{display:block;position:relative;z-index:1;width:88%;height:48%;object-fit:contain;padding:0;filter:drop-shadow(0 1px 1px rgba(0,0,0,.04))}
+.support-option--hth .support-option-media::before{inset:15% 20%}
+.support-option--hth .support-option-media img{width:59%;height:72%}
 .support-option-content{min-width:0}
 .support-option-top{display:flex;align-items:center;justify-content:space-between;gap:7px;flex-wrap:wrap}
 .support-option-brand{display:inline-flex;align-items:center;min-height:24px;padding:4px 9px;border-radius:6px;background:var(--brand-surface);border:1px solid var(--brand-edge);color:var(--brand-ink);font-size:10px;font-weight:850;letter-spacing:.02em}
@@ -83,7 +90,7 @@
 .support-add svg{width:15px;height:15px}
 .support-option :is(a,button):focus-visible{outline:3px solid var(--brand-accent);outline-offset:3px}
 @media(hover:hover){.support-option:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(4,45,65,.09)}}
-@media(max-width:480px){.support-option{padding:12px}.support-option-main{grid-template-columns:88px minmax(0,1fr);gap:11px}.support-option-media{height:92px}.support-option h4{font-size:12px}.support-option p{font-size:10px}.support-brand-lettermark--hth{font-size:24px}.support-brand-lettermark--montreal{font-size:12px}.support-option-actions{align-items:flex-start}}
+@media(max-width:480px){.support-option{padding:12px}.support-option-main{grid-template-columns:90px minmax(0,1fr);gap:12px}.support-option-media{width:90px;height:auto}.support-option h4{font-size:12px}.support-option p{font-size:10px}.support-brand-lettermark--hth{font-size:24px}.support-brand-lettermark--montreal{font-size:12px}.support-option-actions{align-items:flex-start}}
 .support-case-warning{font-size:10px;color:#777b89;line-height:1.75;margin:16px 0 0}
 .support-empty{text-align:center;padding:55px 20px;border:1px dashed #beded9;border-radius:22px}
 .support-empty h3{font-size:19px}
@@ -114,3 +121,14 @@
 .support-case-visual img{object-position:center center}
 
 @media(prefers-reduced-motion:reduce){.support-option,.support-add{transition:none}.support-option:hover,.support-add:hover{transform:none}}
+
+/* Artes quadradas com paleta individual: logo original sobre composição aquática 1:1. */
+.support-option{background:linear-gradient(112deg,var(--brand-surface),#fff 64%);border-color:var(--brand-edge)}
+.support-option::before{width:4px;background:var(--brand-accent)}
+.support-option .support-add{background:var(--brand-button);color:#fff;box-shadow:0 3px 9px rgba(6,42,78,.1)}
+.support-option .support-add:hover{background:var(--brand-ink);color:#fff;filter:brightness(1.12)}
+.support-option .support-add:focus-visible{outline:3px solid var(--brand-accent);outline-offset:3px}
+.support-option--genco .support-option-media img{width:88%;height:44%}
+.support-option--montreal .support-option-media img{width:90%;height:46%}
+.support-option--fluidra .support-option-media img{width:88%;height:46%}
+@media(max-width:350px){.support-option-main{grid-template-columns:76px minmax(0,1fr)}.support-option-media{width:76px}}
