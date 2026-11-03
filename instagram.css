@@ -1,0 +1,70 @@
+/* Instagram V2.2: estilos isolados da página, sem alterar o restante do site. */
+.instagram-page{background:#fff;color:#092e51}
+.instagram-page .topbar{background:#061e3d;color:#ddfdfb;border-bottom:1px solid rgba(151,224,224,.1)}
+.instagram-page .site-header{background:linear-gradient(115deg,#06254e 0%,#073252 100%);border-color:rgba(150,222,225,.21)}
+.instagram-page .nav-desktop a{color:#eefcff}
+.instagram-page .nav-desktop a:hover,.instagram-page .nav-desktop a[aria-current=page]{color:#05f3db}
+.instagram-page .brand-official-logo{filter:drop-shadow(0 3px 6px rgba(0,10,24,.18))}
+.instagram-page .header-actions{gap:10px}
+.instagram-page .ig-header-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:43px;padding:9px 15px;border-radius:12px;background:#05f3db;color:#06254e;font-size:12px;font-weight:800;white-space:nowrap}
+.instagram-page .ig-header-cta:hover{background:#5bffef}
+.instagram-page .menu-trigger{color:#f1fffd;border-color:#3b7082;background:rgba(255,255,255,.04)}
+.instagram-page .mobile-nav{background:#092e51;color:white;border-color:#2c6577}
+.instagram-page .mobile-nav a{color:white;border-color:#245168}
+.instagram-page .mobile-nav a[aria-current=page]{color:#05f3db}
+.instagram-page .ig-intro{background:linear-gradient(115deg,#073451,#0a4357);border-bottom:1px solid #20586b;color:#b5f4ed}
+.instagram-page .ig-intro .container{display:flex;align-items:center;gap:12px;min-height:49px;font-size:10px;font-weight:800;letter-spacing:.14em}
+.instagram-page .ig-intro-side{margin-left:auto;color:#80c7ce;font-size:9px;white-space:nowrap}
+.instagram-page .ig-dot{display:inline-block;flex:none;width:9px;height:9px;border-radius:50%;background:#05f3db;box-shadow:0 0 0 5px rgba(5,243,219,.1)}
+.instagram-page .ig-section{padding:clamp(64px,7vw,100px) 0 72px;background:linear-gradient(160deg,#fff 56%,#f2fcfa 100%)}
+.instagram-page .ig-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;margin-bottom:37px}
+.instagram-page .ig-heading .eyebrow{display:flex;align-items:center;gap:14px;color:#007a75;font-size:11px;letter-spacing:.16em;margin-bottom:16px}
+.instagram-page .ig-heading h1{margin:0 0 17px;font-size:clamp(35px,4.2vw,59px);line-height:1.12;letter-spacing:-.06em;font-weight:800;color:#06254e}
+.instagram-page .ig-heading h1 em{font-style:normal;color:#007a75}
+.instagram-page .ig-lead{max-width:670px;color:#59717f;font-size:15px;line-height:1.76;margin:0}
+.instagram-page .ig-secondary{display:inline-flex;gap:10px;align-items:center;justify-content:center;flex:none;padding:12px 19px;min-height:48px;border:1px solid #b8d3d8;border-radius:12px;background:white;font-size:12px;font-weight:800;color:#06254e;transition:background .18s,transform .18s}
+.instagram-page .ig-secondary:hover{background:#e7f8f7;transform:translateY(-2px)}
+.instagram-page .ig-layout{display:grid;grid-template-columns:minmax(0,1fr) 266px;align-items:start;gap:22px}
+.instagram-page .ig-reels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;min-width:0}
+.instagram-page .ig-card{position:relative;min-width:0;aspect-ratio:9/15.7;display:block;overflow:hidden;border:1px solid #d3e8e7;border-radius:20px;background:#0e526b;box-shadow:0 12px 30px rgba(9,47,69,.08);isolation:isolate;transition:transform .18s,box-shadow .18s}
+.instagram-page .ig-card:hover{transform:translateY(-4px);box-shadow:0 20px 38px rgba(9,47,69,.14)}
+.instagram-page .ig-card>img{width:100%;height:100%;object-fit:cover;object-position:center}
+.instagram-page .ig-card-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,26,47,.56) 0%,transparent 35%,rgba(3,23,43,.94) 100%);pointer-events:none}
+.instagram-page .ig-card-badge{position:absolute;top:13px;left:11px;z-index:1;color:#fff;font-size:10px;font-weight:800;letter-spacing:.07em}
+.instagram-page .ig-card-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:grid;place-items:center;width:49px;height:49px;border:1.5px solid rgba(255,255,255,.85);border-radius:50%;background:rgba(5,37,67,.5);color:#fff;font-size:27px;font-weight:500;backdrop-filter:blur(6px)}
+.instagram-page .ig-card-caption{position:absolute;left:12px;right:12px;bottom:13px;color:#fff;display:flex;flex-direction:column;gap:3px}
+.instagram-page .ig-card-caption strong{font-size:14px;font-weight:800;line-height:1.25}
+.instagram-page .ig-card-caption small{font-size:10px;color:#d3f2f1;line-height:1.5}
+.instagram-page .ig-disclosure{font-size:11px;line-height:1.65;color:#6a7e88;margin:16px 1px 0}
+.instagram-page .ig-aside{display:flex;flex-direction:column;align-items:flex-start;padding:27px 21px;background:white;border:1px solid #d3e8e7;border-radius:22px;box-shadow:0 10px 32px rgba(9,47,69,.05)}
+.instagram-page .ig-aside-icon{display:grid;place-items:center;width:51px;height:51px;border-radius:15px;background:#ddfbf4;color:#0c617a}
+.instagram-page .ig-aside-icon svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round}
+.instagram-page .ig-aside-kicker{margin:22px 0 10px;font-size:10px;letter-spacing:.15em;font-weight:800;color:#00817d}
+.instagram-page .ig-aside h2{font-size:25px;letter-spacing:-.04em;line-height:1.22;color:#092e51;margin:0 0 13px;font-weight:800}
+.instagram-page .ig-aside h2 em{color:#007a75;font-style:normal}
+.instagram-page .ig-aside>p:not(.ig-aside-kicker){font-size:12px;line-height:1.7;color:#607783;margin:0}
+.instagram-page .ig-aside ul{list-style:none;margin:22px 0;padding:0;display:flex;flex-direction:column;gap:12px}
+.instagram-page .ig-aside li{display:flex;align-items:center;gap:9px;font-size:11px;line-height:1.4;font-weight:700}
+.instagram-page .ig-aside li>span{display:grid;place-items:center;min-width:23px;height:23px;border-radius:50%;background:#daf9ee;color:#00877a;font-size:13px}
+.instagram-page .ig-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:49px;border-radius:12px;padding:12px 9px;background:#05f3db;color:#06254e;text-align:center;font-size:11px;font-weight:800;line-height:1.4;transition:background .18s}
+.instagram-page .ig-button:hover{background:#00d6c6}
+.instagram-page .ig-bottom{margin-top:28px;display:flex;justify-content:space-between;align-items:center;gap:18px;color:#59717f;font-size:11px}
+.instagram-page .ig-bottom span{display:flex;align-items:center;gap:12px}
+.instagram-page .ig-bottom .ig-dot{width:6px;height:6px;box-shadow:0 0 0 4px #e7f8f3}
+.instagram-page .ig-bottom a{font-weight:800;color:#007a75}
+.instagram-page .ig-footer{background:#06254e;color:#bcdde1;padding:25px 0}
+.instagram-page .ig-footer .container,.instagram-page .ig-footer nav{display:flex;gap:22px;justify-content:space-between;align-items:center}
+.instagram-page .ig-footer a:hover{color:#05f3db}
+.instagram-page .ig-modal{border:0;border-radius:20px;padding:0;width:min(520px,calc(100vw - 24px));background:#fff;color:#092e51;box-shadow:0 22px 80px #0005}
+.instagram-page .ig-modal::backdrop{background:rgba(3,23,43,.72)}
+.instagram-page .ig-modal-head{display:flex;align-items:center;justify-content:space-between;padding:15px 18px;border-bottom:1px solid #d3e8e7}
+.instagram-page .ig-modal-head h2{font-size:16px;margin:0}
+.instagram-page .ig-modal-close{width:37px;height:37px;border-radius:10px;border:1px solid #d3e8e7;background:#f1faf8;color:#092e51;font-size:24px;cursor:pointer}
+.instagram-page .ig-modal-content{height:min(65vh,650px);background:#e7f8f7}
+.instagram-page .ig-modal-content iframe{display:block;border:0;width:100%;height:100%;background:white}
+.instagram-page .ig-modal-external{display:block;padding:16px;text-align:center;font-size:12px;font-weight:800;color:#007a75}
+@media(max-width:1150px){.instagram-page .ig-layout{grid-template-columns:minmax(0,1fr) 238px}.instagram-page .ig-reels{gap:9px}.instagram-page .ig-aside{padding:20px 16px}.instagram-page .ig-aside h2{font-size:23px}}
+@media(max-width:900px){.instagram-page .ig-layout{display:flex;flex-direction:column}.instagram-page .ig-reels{gap:12px}.instagram-page .ig-aside{width:100%}}
+@media(max-width:650px){.instagram-page .ig-header-cta{display:none}.instagram-page .ig-intro .container{min-height:46px;font-size:9px;letter-spacing:.08em}.instagram-page .ig-intro-side{display:none}.instagram-page .ig-section{padding:59px 0 55px}.instagram-page .ig-heading{display:block;margin-bottom:25px}.instagram-page .ig-heading h1{font-size:clamp(34px,8.5vw,43px);line-height:1.11}.instagram-page .ig-lead{font-size:13px}.instagram-page .ig-secondary{margin-top:18px}.instagram-page .ig-reels{display:flex;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;gap:13px;margin:0 -17px;padding:4px 17px 20px;scrollbar-width:thin;scrollbar-color:#a5d7d4 transparent}.instagram-page .ig-card{flex:0 0 min(58vw,225px);scroll-snap-align:start;aspect-ratio:9/15.5;border-radius:18px}.instagram-page .ig-aside{padding:23px}.instagram-page .ig-aside h2{font-size:26px}.instagram-page .ig-bottom{flex-direction:column;align-items:flex-start}.instagram-page .ig-footer .container{flex-direction:column;gap:13px;align-items:flex-start}.instagram-page .ig-footer nav{flex-wrap:wrap;gap:16px}}
+@media(max-width:350px){.instagram-page .ig-reels{margin-inline:-12px;padding-inline:12px}}
+@media(prefers-reduced-motion:reduce){.instagram-page *{transition:none!important;scroll-behavior:auto!important}}
