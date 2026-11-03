@@ -30,6 +30,7 @@ jobs:
           node --check app.js
           node --check support.js
           node --check reviews.js
+          node --check instagram.js
       - name: Verificar arquivos e referências
         run: |
           test -s index.html
@@ -50,6 +51,9 @@ jobs:
           test -s avaliacoes.html
           test -s reviews.css
           test -s reviews.js
+          test -s instagram.html
+          test -s instagram.css
+          test -s instagram.js
           test -s avaliacoes.json
           test -s assets/favicon.svg
           test -s assets/espaco-piscina-logo.svg
@@ -126,17 +130,32 @@ jobs:
           print('Estrutura e recursos principais presentes.')
           import xml.etree.ElementTree as ET
           locs = [e.text for e in ET.parse('sitemap.xml').iter('{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
-          assert locs == ['https://k410sh4.github.io/EspacoPiscinas/', 'https://k410sh4.github.io/EspacoPiscinas/suporte.html', 'https://k410sh4.github.io/EspacoPiscinas/avaliacoes.html']
-          for name, url in [('index.html', locs[0]), ('suporte.html', locs[1]), ('avaliacoes.html', locs[2])]:
-              assert f'<link rel="canonical" href="{url}">' in Path(name).read_text(encoding='utf-8')
-          print('Sitemap e links canônicos válidos.')
+          base = 'https://k410sh4.github.io/EspacoPiscinas/'
+          expected_pages = {
+              'index.html': base,
+              'suporte.html': base + 'suporte.html',
+              'avaliacoes.html': base + 'avaliacoes.html',
+              'instagram.html': base + 'instagram.html',
+          }
+          assert set(locs) == set(expected_pages.values()) and len(locs) == len(expected_pages), 'Sitemap desatualizado'
+          for name, url in expected_pages.items():
+              content = Path(name).read_text(encoding='utf-8')
+              assert f'<link rel="canonical" href="{url}">' in content, f'Canonical inválido: {name}'
+          instagram = PageChecker()
+          instagram.feed(Path('instagram.html').read_text(encoding='utf-8'))
+          assert './instagram.js' in instagram.scripts
+          assert './instagram.css' in instagram.styles
+          assert {'igReels', 'igDisclosure', 'igModal', 'menuToggle', 'mobileNav'} <= instagram.ids
+          for name in ('index.html', 'suporte.html', 'avaliacoes.html'):
+              assert 'href="./instagram.html"' in Path(name).read_text(encoding='utf-8'), f'Menu Instagram ausente em {name}'
+          print('Sitemap, página Instagram, navegação e links canônicos válidos.')
           PY
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
       - name: Preparar pacote público
         run: |
           mkdir -p dist/assets
-          cp index.html suporte.html avaliacoes.html styles.css support.css reviews.css app.js support.js reviews.js catalog.js avaliacoes.json robots.txt sitemap.xml .nojekyll googlede998025cd2cc5e8.html dist/
+          cp index.html suporte.html avaliacoes.html instagram.html styles.css support.css reviews.css instagram.css app.js support.js reviews.js instagram.js catalog.js avaliacoes.json robots.txt sitemap.xml .nojekyll googlede998025cd2cc5e8.html dist/
           cp assets/favicon.svg assets/espaco-piscina-logo.svg assets/fachada-espaco-piscina-3072.png dist/assets/
           cp -R assets/problemas dist/assets/
           cp -R assets/marcas dist/assets/
