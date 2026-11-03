@@ -457,3 +457,7 @@ svg{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-l
   .footer-bottom{flex-direction:column;align-items:flex-start;gap:10px}
 }
 @media(prefers-reduced-motion:reduce){.footer-socials a{transition:none}.footer-socials a:hover{transform:none}}
+
+/* Navegação com página Instagram: preserva links e evita compressão em desktops menores. */
+@media(min-width:901px){.nav-desktop{gap:clamp(10px,1.2vw,17px)}.nav-desktop a{font-size:clamp(10.5px,1.03vw,12px)}.header-inner{gap:14px}}
+@media(min-width:901px) and (max-width:1020px){.nav-desktop a[href="#como-funciona"]{display:none}}
