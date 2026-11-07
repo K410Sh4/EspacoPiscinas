@@ -3,7 +3,7 @@
 const WHATSAPP_NUMBER = "5535988124020";
 // Habilite somente apos o backend privado SAITE estar implantado e testado.
 // Contato empresarial continua publico para quem desejar falar com a loja.
-const USE_SAITE_PRIVATE_INBOX = false;
+const USE_SAITE_PRIVATE_INBOX = true;
 const STORAGE_KEY = "espaco-piscina-orcamento-v1";
 const products = window.EspacoCatalog.products;
 
@@ -139,13 +139,20 @@ function openWhatsApp(message) {
   link.click();
   link.remove();
 }
-function openQuoteRequest(message) {
+function openQuoteRequest(message,name="") {
+  // GitHub Pages usa a mesma origem entre projetos; os detalhes do pedido
+  // ficam na sessão e não aparecem em URLs, referers ou histórico do navegador.
   if (USE_SAITE_PRIVATE_INBOX) {
-    const url = new URL("https://k410sh4.github.io/SAITE/contato.html");
-    url.searchParams.set("origem", "espaco-piscina");
-    url.searchParams.set("assunto", "Orçamento Espaço Piscina");
-    url.searchParams.set("pedido", message.slice(0,2800));
-    window.open(url.toString(), "_blank", "noopener,noreferrer");
+    try {
+      sessionStorage.setItem("saite:pending-request:v1", JSON.stringify({
+        source:"espaco-piscina",
+        subject:"Orçamento Espaço Piscina",
+        message:message.slice(0,3000),
+        name:String(name).slice(0,80),
+        timestamp:Date.now()
+      }));
+    } catch (error) { console.warn("Pré-preenchimento local não disponível."); }
+    window.location.assign("https://k410sh4.github.io/SAITE/contato.html?origem=espaco-piscina");
     return;
   }
   openWhatsApp(message);
@@ -235,7 +242,7 @@ $("#quickQuoteForm").addEventListener("submit", event => {
   if (name) lines.push("Meu nome: " + name);
   if (details) lines.push("Detalhes: " + details);
   lines.push("","Poderiam me ajudar com informações e disponibilidade?");
-  openQuoteRequest(lines.join("\n"));
+  openQuoteRequest(lines.join("\n"),name);
 });
 menuButton.addEventListener("click", () => {
   const opening = mobileNav.hidden;
