@@ -1,8 +1,7 @@
 "use strict";
 
-/* Página estática: encaminha feedback à loja via WhatsApp.
-   Só arquivos aprovados e autorizados em avaliacoes.json são exibidos publicamente. */
-const PHONE = "5535988124020";
+/* Feedback encaminhado à Central Privada SAITE. Apenas depoimentos
+   aprovados e autorizados em avaliacoes.json são publicados. */
 const form = document.getElementById("reviewForm");
 const reviewName = document.getElementById("reviewName");
 const reviewCity = document.getElementById("reviewCity");
@@ -25,23 +24,23 @@ function starWord(value) {
 function routeFor(rating, consent) {
   if (!rating) return {
     heading:"Escolha sua nota",
-    description:"Mostraremos aqui para onde vai sua avaliação antes de abrir o WhatsApp.",
-    button:"Continuar para o WhatsApp"
+    description:"Mostraremos aqui como sua avaliação será enviada à central privada.",
+    button:"Continuar para o formulário seguro"
   };
   if (rating <= 3) return {
     heading:"Feedback privado para a loja",
-    description:"Sua nota e seu comentário não serão publicados neste site. A mensagem será preparada para o WhatsApp.",
-    button:"Enviar feedback privado via WhatsApp"
+    description:"Sua nota e seu comentário não serão publicados. A mensagem será enviada apenas à central privada.",
+    button:"Enviar feedback privado"
   };
   if (consent) return {
     heading:"Solicitação de depoimento público",
-    description:"Seu comentário seguirá ao WhatsApp para moderação. A loja poderá publicar o depoimento após avaliação, mas não existe publicação automática.",
-    button:"Enviar para moderação via WhatsApp"
+    description:"Seu comentário seguirá à central privada para análise. A loja poderá publicar o depoimento autorizado após moderação.",
+    button:"Enviar para moderação"
   };
   return {
     heading:"Mensagem privada, sem autorização de publicação",
     description:"A nota de 4 ou 5 estrelas será encaminhada apenas à loja. Marque a autorização se desejar que ela possa aparecer no site após moderação.",
-    button:"Enviar elogio privado via WhatsApp"
+    button:"Enviar elogio privado"
   };
 }
 function paintRating() {
@@ -68,7 +67,7 @@ function formError(message, focus) {
   if (focus) focus.focus();
 }
 function normalizedLine(value) {
-  // Evita introdução de campos falsos em mensagens enviadas ao WhatsApp.
+  // Evita introdução de campos falsos em mensagens enviadas à central.
   return value.trim().replace(/[\r\n\t]+/g," ").replace(/\s{2,}/g," ");
 }
 function buildMessage(rating, name, city, comment, consent) {
@@ -93,19 +92,21 @@ function buildMessage(rating, name, city, comment, consent) {
       ? "Autorizo a publicação do meu nome, cidade (se informada), nota e comentário no site após análise da loja."
       : "Não autorizo a publicação deste feedback no site.",
     "",
-    "Mensagem preparada pelo cliente; ele decidirá se deseja enviá-la."
+    "Mensagem preparada pelo cliente para envio confirmado no formulário seguro."
   );
   return result.join("\n");
 }
-function openWhatsApp(message) {
-  const url = "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(message);
-  const link = document.createElement("a");
-  link.href = url;
-  link.target = "_blank";
-  link.rel = "noopener noreferrer";
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
+function openPrivateInbox(message,name) {
+  try{
+    sessionStorage.setItem('saite:pending-request:v1',JSON.stringify({
+      source:'espaco-piscina',
+      subject:'Avaliação e feedback — Espaço Piscina',
+      name:name.slice(0,80),
+      message:message.slice(0,3000),
+      timestamp:Date.now()
+    }));
+  }catch(error){console.warn('Pré-preenchimento não disponível neste navegador.')}
+  window.location.assign('https://k410sh4.github.io/SAITE/contato.html?origem=espaco-piscina');
 }
 form.addEventListener("change", event => {
   if (event.target.name === "rating" || event.target === reviewConsent) paintRating();
@@ -129,7 +130,7 @@ form.addEventListener("submit", event => {
     return;
   }
   reviewError.hidden = true;
-  openWhatsApp(buildMessage(rating,name,city,comment,reviewConsent.checked));
+  openPrivateInbox(buildMessage(rating,name,city,comment,reviewConsent.checked),name);
 });
 
 const list = document.getElementById("reviewList");
