@@ -1,6 +1,9 @@
 "use strict";
 
 const WHATSAPP_NUMBER = "5535988124020";
+// Habilite somente apos o backend privado SAITE estar implantado e testado.
+// Contato empresarial continua publico para quem desejar falar com a loja.
+const USE_SAITE_PRIVATE_INBOX = false;
 const STORAGE_KEY = "espaco-piscina-orcamento-v1";
 const products = window.EspacoCatalog.products;
 
@@ -136,6 +139,26 @@ function openWhatsApp(message) {
   link.click();
   link.remove();
 }
+function openQuoteRequest(message) {
+  if (USE_SAITE_PRIVATE_INBOX) {
+    const url = new URL("https://k410sh4.github.io/SAITE/contato.html");
+    url.searchParams.set("origem", "espaco-piscina");
+    url.searchParams.set("assunto", "Orçamento Espaço Piscina");
+    url.searchParams.set("pedido", message.slice(0,2800));
+    window.open(url.toString(), "_blank", "noopener,noreferrer");
+    return;
+  }
+  openWhatsApp(message);
+}
+if (USE_SAITE_PRIVATE_INBOX) {
+  const icon=sendQuote.querySelector("svg");
+  sendQuote.replaceChildren(document.createTextNode("Pedir orçamento por e-mail "), ...(icon?[icon]:[]));
+  const formButton=document.querySelector("#quickQuoteForm button[type=submit]");
+  if(formButton) {
+    const svg=formButton.querySelector("svg");
+    formButton.replaceChildren(document.createTextNode("Enviar pedido por e-mail "),...(svg?[svg]:[]));
+  }
+}
 function preparedCartMessage() {
   const lines = ["Olá! Gostaria de solicitar um orçamento à Espaço Piscina.","","Itens de interesse:"];
   for (const item of products) {
@@ -185,7 +208,7 @@ document.addEventListener("keydown", event => {
   else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
 });
 sendQuote.addEventListener("click", () => {
-  if (totalItems() > 0) openWhatsApp(preparedCartMessage());
+  if (totalItems() > 0) openQuoteRequest(preparedCartMessage());
 });
 searchInput.addEventListener("input", renderProducts);
 filterSelect.addEventListener("change", renderProducts);
@@ -212,7 +235,7 @@ $("#quickQuoteForm").addEventListener("submit", event => {
   if (name) lines.push("Meu nome: " + name);
   if (details) lines.push("Detalhes: " + details);
   lines.push("","Poderiam me ajudar com informações e disponibilidade?");
-  openWhatsApp(lines.join("\n"));
+  openQuoteRequest(lines.join("\n"));
 });
 menuButton.addEventListener("click", () => {
   const opening = mobileNav.hidden;
